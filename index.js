@@ -222,6 +222,7 @@ function opcionesResultadoFinal(valor){
     }
     alert(`${nombreUsuario}, según las opciones indicadas tu perfil corresponde al Perfil ${perfilCalculado}`);
     alert(`Las opciones de inversión para el Perfil ${perfilCalculado}, son las siguientes: `);
+    document.write(`Opciones de inversión para ${nombreUsuario}: <br>`);
     for (const recorrerArray in resultadosParaMostrar) {
         for (const recorrerObjeto in resultadosParaMostrar[recorrerArray]){
             document.write(`${recorrerObjeto}: `);
