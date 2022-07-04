@@ -32,8 +32,7 @@ pregunta: "9 - Del total de mi dinero estoy dispuesto a asumir una pérdida de \
 cantidad: 3,
 pregunta: "10 - Me gustaría invertir \n 1) El total de mis Activos en Renta Fija a corto plazo (Bonos, Fonodos Comunes de Inversión, Fideiomisos Financieros) \n 2) La mitad de mis Activos en Renta Fija y el resto en ACCIONES, y demás Activos de Renta Variable \n 3) El total de mis Activos en Renta Variable "}
 ];
-
-const listaResultados = ["Conservador", "Moderado", "Agresivo"];
+const listaPerfiles = ["Conservador", "Moderado", "Agresivo"];
 const Conservador = [
     {nombre: "ADCAP PESOS PLUS Clase A",
      plazo: "Corto Plazo",
@@ -191,10 +190,12 @@ const Agresivo = [
    rentabilidad: {ultimoAño: "-0.24%",
                   ultimoMes: "-.05%",
                   } },];
-let resultadoFinal = 0;
-let opcionSuma = [];
-let perfilCalculado;
 
+let opcionSuma = [];
+
+/* A la siguiente funcion se la llama mediante un for, e irá recorriendo el array listaPreguntas. En base a las propiedades de cada objeto, analiza si la opcion seleccionada corresponde a las habilitadas, debiendo ser mayor a 1 y menor a la propiedad CANTIDAD de cada una de las preguntas-
+
+El valor de cada respuesta lo irá agregando a la lista opcionSuma.*/
 function sumarOpciones(nroPregunta){
     do {
         opcionSuma[nroPregunta] = parseInt(prompt(listaPreguntas[nroPregunta].pregunta));
@@ -204,20 +205,25 @@ function sumarOpciones(nroPregunta){
             }
         } while (opcionSuma[nroPregunta] < 1 || opcionSuma[nroPregunta] > listaPreguntas[nroPregunta].cantidad || isNaN(opcionSuma[nroPregunta]));
 }
+/* La siguiente funcion suma todos los valores de la lista opcionSuma*/
 function calcularResultadoFinal(suma){
     return suma.reduce( (x,y) => x + y, 0);
 }
-function opcionesResultadoFinal(valor){
+/* A la siguiente funcion se le asigna como parametro el resultado obtenido de la funcion anterior para determinar el perfil al que se ajusta el usuario según el rango determinado. 
+Luego le asigna a una variable el nombre de la lista del perfil correspondiente para poder mostrar sus opciones en pantalla.
+Finalmente mediante un for irá recorriendo los objetos del perfil, imprimiendo cada uno de sus productos*/
+function opcionesResultadoFinal(resultadoFinal){
+    let perfilCalculado;
     let resultadosParaMostrar;
-    if (valor <= 13) {
-        perfilCalculado = listaResultados[0];
+    if (resultadoFinal <= 13) {
+        perfilCalculado = listaPerfiles[0];
         resultadosParaMostrar = Conservador;
-    } else if (valor <= 26) {
-        perfilCalculado = listaResultados[1];
+    } else if (resultadoFinal <= 26) {
+        perfilCalculado = listaPerfiles[1];
         resultadosParaMostrar = Moderado;
         
     } else {
-        perfilCalculado = listaResultados[2]
+        perfilCalculado = listaPerfiles[2]
         resultadosParaMostrar = Agresivo;
     }
     alert(`${nombreUsuario}, según las opciones indicadas tu perfil corresponde al Perfil ${perfilCalculado}`);
@@ -234,7 +240,7 @@ function opcionesResultadoFinal(valor){
 
 }
 
-alert("----------------------TEST INICIAL DEL INVERSOR---------------------- \nDescubramos que tipo de inversor sos y que productos se ajustan a tus necesidades");
+alert("TEST INICIAL DEL INVERSOR\nDescubramos que tipo de inversor sos y que productos se ajustan a tus necesidades");
 
 do {
     nombreUsuario = prompt("Ingrese su nombre");
@@ -249,8 +255,7 @@ for (const recorrido in listaPreguntas){
     sumarOpciones(recorrido);
 };
 
-resultadoFinal= calcularResultadoFinal(opcionSuma);
-opcionesResultadoFinal(resultadoFinal);
+opcionesResultadoFinal(calcularResultadoFinal(opcionSuma));
 
 
 
