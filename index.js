@@ -87,29 +87,29 @@ const Conservador = [
                    } },];
 
 const Moderado = [
-    {nombre: "ADCAP PESOS PLUS Clase A",
+    {nombre: "DCAP BALANCEADO II Clase A",
     plazo: "Corto Plazo",
     inversionMinima: 1000,
     moneda: "Pesos",
     rescate: "48hs",
     tipoRenta: "Renta Fija",
-    valorCuotaparte: 10.4625,
-    rentabilidad: {ultimoAño: "46%",
-                   ultimoMes: "3%",
+    valorCuotaparte: 2.0810,
+    rentabilidad: {ultimoAño: "49.04%",
+                   ultimoMes: "-0.86%",
                    } },
    
-   {nombre: "FIMA PREMIUM Clase A",
-   plazo: "Muy Corto Plazo",
+   {nombre: "ADCAP RENTA FIJA ARGENTINA Clase A",
+   plazo: "Corto Plazo",
    inversionMinima: 1000,
    moneda: "Pesos",
-   rescate: "Inmediato",
-   tipoRenta: "Renta Fija",
-   valorCuotaparte: 12.1322,
-   rentabilidad: {ultimoAño: "35.73%",
-                  ultimoMes: "3.19%",
+   rescate: "48hs",
+   tipoRenta: "Dolar Linked",
+   valorCuotaparte: 3.4528,
+   rentabilidad: {ultimoAño: "32.40%",
+                  ultimoMes: "2.67%",
                   } },
-   {nombre: "GALILEO AHORRO Clase A",
-   plazo: "Muy Corto Plazo",
+   {nombre: "ADCAP RETORNO TOTAL Clase A",
+   plazo: "Corto Plazo",
    inversionMinima: 1000,
    moneda: "Pesos",
    rescate: "24hs",
@@ -118,77 +118,77 @@ const Moderado = [
    rentabilidad: {ultimoAño: "47.90%",
                   ultimoMes: "4.42%",
                   } },
-   {nombre: "TORONTO TRUST AHORRO Clase A",
-   plazo: "Corto Plazo",
+   {nombre: "ALLARIA COBERTURA DINÁMICA Clase A",
+   plazo: "Mediano Plazo",
    inversionMinima: 1000,
    moneda: "Pesos",
-   rescate: "Inmediato",
-   tipoRenta: "Money Market",
-   valorCuotaparte: 7.3082,
-   rentabilidad: {ultimoAño: "37.23%",
-                  ultimoMes: "3.29%",
-                  } },
-   {nombre: "TORONTO TRUST LIQUIDEZ DÓLAR Clase A - Divisa",
-   plazo: "Corto Plazo",
-   inversionMinima: 1000,
-   moneda: "Dólares",
    rescate: "48hs",
    tipoRenta: "Renta Fija",
-   valorCuotaparte: 1.0731,
-   rentabilidad: {ultimoAño: "-0.24%",
-                  ultimoMes: "-.05%",
+   valorCuotaparte: 1.3935,
+   rentabilidad: {ultimoAño: "39.35%",
+                  ultimoMes: "1.3935%",
+                  } },
+   {nombre: "ARGENFUNDS ABIERTO PYMES Clase B",
+   plazo: "Mediano Plazo",
+   inversionMinima: 10000,
+   moneda: "Pesos",
+   rescate: "48hs",
+   tipoRenta: "Renta Fija",
+   valorCuotaparte: 3.2272,
+   rentabilidad: {ultimoAño: "36.64%",
+                  ultimoMes: "2.14%",
                   } },];
 const Agresivo = [
-    {nombre: "ADCAP PESOS PLUS Clase A",
-    plazo: "Corto Plazo",
-    inversionMinima: 1000,
+    {nombre: "ADCAP BALANCEADO Clase A",
+    plazo: "Mediano/Largo",
+    inversionMinima: 500,
     moneda: "Pesos",
     rescate: "48hs",
-    tipoRenta: "Renta Fija",
-    valorCuotaparte: 10.4625,
-    rentabilidad: {ultimoAño: "46%",
-                   ultimoMes: "3%",
+    tipoRenta: "Retorno Total",
+    valorCuotaparte: 6.4304,
+    rentabilidad: {ultimoAño: "39.52%",
+                   ultimoMes: "2.06%",
                    } },
    
-   {nombre: "FIMA PREMIUM Clase A",
-   plazo: "Muy Corto Plazo",
+   {nombre: "ALLARIA ACCIONES Clase A",
+   plazo: "Largo Plazo",
    inversionMinima: 1000,
    moneda: "Pesos",
-   rescate: "Inmediato",
-   tipoRenta: "Renta Fija",
-   valorCuotaparte: 12.1322,
-   rentabilidad: {ultimoAño: "35.73%",
-                  ultimoMes: "3.19%",
-                  } },
-   {nombre: "GALILEO AHORRO Clase A",
-   plazo: "Muy Corto Plazo",
-   inversionMinima: 1000,
-   moneda: "Pesos",
-   rescate: "24hs",
-   tipoRenta: "Renta Fija",
-   valorCuotaparte: 24.4339,
-   rentabilidad: {ultimoAño: "47.90%",
-                  ultimoMes: "4.42%",
-                  } },
-   {nombre: "TORONTO TRUST AHORRO Clase A",
-   plazo: "Corto Plazo",
-   inversionMinima: 1000,
-   moneda: "Pesos",
-   rescate: "Inmediato",
-   tipoRenta: "Money Market",
-   valorCuotaparte: 7.3082,
-   rentabilidad: {ultimoAño: "37.23%",
-                  ultimoMes: "3.29%",
-                  } },
-   {nombre: "TORONTO TRUST LIQUIDEZ DÓLAR Clase A - Divisa",
-   plazo: "Corto Plazo",
-   inversionMinima: 1000,
-   moneda: "Dólares",
    rescate: "48hs",
-   tipoRenta: "Renta Fija",
-   valorCuotaparte: 1.0731,
-   rentabilidad: {ultimoAño: "-0.24%",
-                  ultimoMes: "-.05%",
+   tipoRenta: "Renta Variable",
+   valorCuotaparte: 33.7802,
+   rentabilidad: {ultimoAño: "53.68%",
+                  ultimoMes: "13.41%",
+                  } },
+   {nombre: "TORONTO TRUST ARGENTINA 2021 Clase A",
+   plazo: "Mediano/Largo Plazo",
+   inversionMinima: 1000,
+   moneda: "Pesos",
+   rescate: "48hs",
+   tipoRenta: "Renta Mixta",
+   valorCuotaparte: 24.4339,
+   rentabilidad: {ultimoAño: "1.85%",
+                  ultimoMes: "2.03%",
+                  } },
+   {nombre: "BALANZ ACCIONES Clase B",
+   plazo: "Largo Plazo",
+   inversionMinima: 20000,
+   moneda: "Pesos",
+   rescate: "48hs",
+   tipoRenta: "Renta Variable",
+   valorCuotaparte: 5.64,
+   rentabilidad: {ultimoAño: "13.56%",
+                  ultimoMes: "57.13%",
+                  } },
+   {nombre: "CMA ACCIONES Clase A",
+   plazo: "Largo Plazo",
+   inversionMinima: 10000,
+   moneda: "Pesos",
+   rescate: "48hs",
+   tipoRenta: "Renta Variable",
+   valorCuotaparte: 3.2251,
+   rentabilidad: {ultimoAño: "51.21%",
+                  ultimoMes: "10.94%",
                   } },];
 
 let opcionSuma = [];
@@ -199,6 +199,7 @@ El valor de cada respuesta lo irá agregando a la lista opcionSuma.*/
 function sumarOpciones(nroPregunta){
     do {
         opcionSuma[nroPregunta] = parseInt(prompt(listaPreguntas[nroPregunta].pregunta));
+
         if (opcionSuma[nroPregunta] < 1 || opcionSuma[nroPregunta] > listaPreguntas[nroPregunta].cantidad || isNaN(opcionSuma[nroPregunta]))
             {
             alert("Debe ingresar el número de opción correspondiente");
@@ -207,7 +208,7 @@ function sumarOpciones(nroPregunta){
 }
 /* La siguiente funcion suma todos los valores de la lista opcionSuma*/
 function calcularResultadoFinal(suma){
-    return suma.reduce( (x,y) => x + y, 0);
+    return suma.reduce((x,y) => x + y, 0);
 }
 /* A la siguiente funcion se le asigna como parametro el resultado obtenido de la funcion anterior para determinar el perfil al que se ajusta el usuario según el rango determinado. 
 Luego le asigna a una variable el nombre de la lista del perfil correspondiente para poder mostrar sus opciones en pantalla.
@@ -215,9 +216,11 @@ Finalmente mediante un for irá recorriendo los objetos del perfil, imprimiendo 
 function opcionesResultadoFinal(resultadoFinal){
     let perfilCalculado;
     let resultadosParaMostrar;
+
     if (resultadoFinal <= 13) {
         perfilCalculado = listaPerfiles[0];
         resultadosParaMostrar = Conservador;
+
     } else if (resultadoFinal <= 26) {
         perfilCalculado = listaPerfiles[1];
         resultadosParaMostrar = Moderado;
@@ -226,16 +229,23 @@ function opcionesResultadoFinal(resultadoFinal){
         perfilCalculado = listaPerfiles[2]
         resultadosParaMostrar = Agresivo;
     }
+
     alert(`${nombreUsuario}, según las opciones indicadas tu perfil corresponde al Perfil ${perfilCalculado}`);
     alert(`Las opciones de inversión para el Perfil ${perfilCalculado}, son las siguientes: `);
-    document.write(`Opciones de inversión para ${nombreUsuario} -- Perfil ${perfilCalculado}: <br><br>`);
+
+    document.write(`Opciones de inversión para ${nombreUsuario} - Perfil ${perfilCalculado}: <br><br>`);
+    document.write(`Se muestran ${resultadosParaMostrar.length} resultados.<br><br>`);
+    
     for (const recorrerArray in resultadosParaMostrar) {
-        for (const recorrerObjeto in resultadosParaMostrar[recorrerArray]){
+
+       document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
+
+        /* for (const recorrerObjeto in resultadosParaMostrar[recorrerArray]){
             document.write(`${recorrerObjeto}: `);
             document.write(`${JSON.stringify(resultadosParaMostrar[recorrerArray][recorrerObjeto])}`);
             document.write("<br>");
         }
-        document.write("<br><br>");      
+        document.write("<br><br>");      */ 
     }
 
 }
