@@ -129,6 +129,51 @@ function opcionesResultadoFinal(resultadoFinal){
 
 }
 
+//FILTROS Y BUSQUEDA------------------------------------------------------------------------------------------------------------
+
+function buscarMinimoInversion (valor){
+    let resultadosParaMostrar = [];
+    resultadosParaMostrar = listaFondos.filter(elemento => elemento.inversionMinima <= valor);
+    document.write(`Se muestran ${resultadosParaMostrar.length} resultados por debajo de ${valor} Pesos/Dolares de inversión mínima: <br><br>`)
+    for (const recorrerArray in resultadosParaMostrar) {
+        document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
+        document.write(`- Inversión minima ${resultadosParaMostrar[recorrerArray].inversionMinima} ${resultadosParaMostrar[recorrerArray].moneda}<br><br>`);
+    };
+};
+
+function filtrarMayorRentabilidadAnio () {
+    let resultadosParaMostrar = [];
+    resultadosParaMostrar = listaFondos.map(elemento => elemento);
+    resultadosParaMostrar.sort((a,b) => b.rentabilidad.ultimoAño - a.rentabilidad.ultimoAño);
+    document.write(`Se muestran ${resultadosParaMostrar.length} resultados ordenados por mayor nivel de rentabilidad.<br><br>`)
+    for (const recorrerArray in resultadosParaMostrar) {
+        document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
+        document.write(`- Rentabilidad en el último año ${resultadosParaMostrar[recorrerArray].rentabilidad.ultimoAño}%<br><br>`);
+    };
+};
+
+function filtrarMenorPlazo (valor){
+    let resultadosParaMostrar = [];
+    resultadosParaMostrar = listaFondos.filter(elemento => elemento.plazo == valor);
+    document.write(`Se muestran ${resultadosParaMostrar.length} resultados para inversiones de ${valor} plazo: <br><br>`)
+    for (const recorrerArray in resultadosParaMostrar) {
+        document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
+        document.write(`- ${resultadosParaMostrar[recorrerArray].plazo} plazo.<br><br>`);
+    };
+
+};
+
+function buscarMoneda (valor){
+    let resultadosParaMostrar = [];
+    resultadosParaMostrar = listaFondos.filter(elemento => elemento.moneda == valor);
+    document.write(`Se muestran ${resultadosParaMostrar.length} resultados en ${valor}.<br><br>`)
+    for (const recorrerArray in resultadosParaMostrar) {
+        document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
+        document.write(`- ${resultadosParaMostrar[recorrerArray].moneda}.<br><br>`);
+    };
+}
+// HASTA ACA LLEGA FILTROS Y BUSQUEDA------------------------------------------------------------------------------------------------
+
 alert("TEST INICIAL DEL INVERSOR\nDescubramos que tipo de inversor sos y que productos se ajustan a tus necesidades");
 
 do {
@@ -146,53 +191,11 @@ for (const recorrido in listaPreguntas){
 
 opcionesResultadoFinal(calcularResultadoFinal(opcionSuma));
 
-//FILTROS Y BUSQUEDA
-
-function buscarMinimoInversion (valor){
-    let resultadosParaMostrar = [];
-    resultadosParaMostrar = listaFondos.filter(elemento => elemento.inversionMinima <= valor);
-    document.write(`Se muestran ${resultadosParaMostrar.length} resultados por debajo de ${valor} Pesos/Dolares de inversión mínima: <br><br>`)
-    for (const recorrerArray in resultadosParaMostrar) {
-        document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
-        document.write(`- Inversión minima ${resultadosParaMostrar[recorrerArray].inversionMinima} ${resultadosParaMostrar[recorrerArray].moneda}<br><br>`);
-    };
-};
-
 buscarMinimoInversion (prompt("Ingrese el monto mínimo a invertir deseado: "))
-
-function filtrarMayorRentabilidadAnio () {
-    let resultadosParaMostrar = [];
-    resultadosParaMostrar = listaFondos.map(elemento => elemento);
-    resultadosParaMostrar.sort((a,b) => b.rentabilidad.ultimoAño - a.rentabilidad.ultimoAño);
-    document.write(`Se muestran ${resultadosParaMostrar.length} resultados ordenados por mayor nivel de rentabilidad.<br><br>`)
-    for (const recorrerArray in resultadosParaMostrar) {
-        document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
-        document.write(`- Rentabilidad en el último año ${resultadosParaMostrar[recorrerArray].rentabilidad.ultimoAño}%<br><br>`);
-    };
-};
 
 filtrarMayorRentabilidadAnio();
 
-function filtrarMenorPlazo (valor){
-    let resultadosParaMostrar = [];
-    resultadosParaMostrar = listaFondos.filter(elemento => elemento.plazo == valor);
-    document.write(`Se muestran ${resultadosParaMostrar.length} resultados para inversiones de ${valor} plazo: <br><br>`)
-    for (const recorrerArray in resultadosParaMostrar) {
-        document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
-        document.write(`- ${resultadosParaMostrar[recorrerArray].plazo} plazo.<br><br>`);
-    };
-
-};
-
 filtrarMenorPlazo(prompt("Ingrese el plazo de la inversion deseado (Corto/Mediano/Largo").toLowerCase());
 
-function buscarMoneda (valor){
-    let resultadosParaMostrar = [];
-    resultadosParaMostrar = listaFondos.filter(elemento => elemento.moneda == valor);
-    document.write(`Se muestran ${resultadosParaMostrar.length} resultados en ${valor}.<br><br>`)
-    for (const recorrerArray in resultadosParaMostrar) {
-        document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
-        document.write(`- ${resultadosParaMostrar[recorrerArray].moneda}.<br><br>`);
-    };
-}
 buscarMoneda(prompt("Ingrese la moneda a filtrar (pesos / dolares)").toLowerCase())
+
