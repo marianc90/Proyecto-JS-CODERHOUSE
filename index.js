@@ -32,164 +32,42 @@ pregunta: "9 - Del total de mi dinero estoy dispuesto a asumir una pérdida de \
 cantidad: 3,
 pregunta: "10 - Me gustaría invertir \n 1) El total de mis Activos en Renta Fija a corto plazo (Bonos, Fonodos Comunes de Inversión, Fideiomisos Financieros) \n 2) La mitad de mis Activos en Renta Fija y el resto en ACCIONES, y demás Activos de Renta Variable \n 3) El total de mis Activos en Renta Variable "}
 ];
-const listaPerfiles = ["Conservador", "Moderado", "Agresivo"];
-const Conservador = [
-    {nombre: "ADCAP PESOS PLUS Clase A",
-     plazo: "Corto Plazo",
-     inversionMinima: 1000,
-     moneda: "Pesos",
-     rescate: "48hs",
-     tipoRenta: "Renta Fija",
-     valorCuotaparte: 10.4625,
-     rentabilidad: {ultimoAño: "46%",
-                    ultimoMes: "3%",
-                    } },
-    
-    {nombre: "FIMA PREMIUM Clase A",
-    plazo: "Muy Corto Plazo",
-    inversionMinima: 1000,
-    moneda: "Pesos",
-    rescate: "Inmediato",
-    tipoRenta: "Renta Fija",
-    valorCuotaparte: 12.1322,
-    rentabilidad: {ultimoAño: "35.73%",
-                   ultimoMes: "3.19%",
-                   } },
-    {nombre: "GALILEO AHORRO Clase A",
-    plazo: "Muy Corto Plazo",
-    inversionMinima: 1000,
-    moneda: "Pesos",
-    rescate: "24hs",
-    tipoRenta: "Renta Fija",
-    valorCuotaparte: 24.4339,
-    rentabilidad: {ultimoAño: "47.90%",
-                   ultimoMes: "4.42%",
-                   } },
-    {nombre: "TORONTO TRUST AHORRO Clase A",
-    plazo: "Corto Plazo",
-    inversionMinima: 1000,
-    moneda: "Pesos",
-    rescate: "Inmediato",
-    tipoRenta: "Money Market",
-    valorCuotaparte: 7.3082,
-    rentabilidad: {ultimoAño: "37.23%",
-                   ultimoMes: "3.29%",
-                   } },
-    {nombre: "TORONTO TRUST LIQUIDEZ DÓLAR Clase A - Divisa",
-    plazo: "Corto Plazo",
-    inversionMinima: 1000,
-    moneda: "Dólares",
-    rescate: "48hs",
-    tipoRenta: "Renta Fija",
-    valorCuotaparte: 1.0731,
-    rentabilidad: {ultimoAño: "-0.24%",
-                   ultimoMes: "-.05%",
-                   } },];
 
-const Moderado = [
-    {nombre: "DCAP BALANCEADO II Clase A",
-    plazo: "Corto Plazo",
-    inversionMinima: 1000,
-    moneda: "Pesos",
-    rescate: "48hs",
-    tipoRenta: "Renta Fija",
-    valorCuotaparte: 2.0810,
-    rentabilidad: {ultimoAño: "49.04%",
-                   ultimoMes: "-0.86%",
-                   } },
-   
-   {nombre: "ADCAP RENTA FIJA ARGENTINA Clase A",
-   plazo: "Corto Plazo",
-   inversionMinima: 1000,
-   moneda: "Pesos",
-   rescate: "48hs",
-   tipoRenta: "Dolar Linked",
-   valorCuotaparte: 3.4528,
-   rentabilidad: {ultimoAño: "32.40%",
-                  ultimoMes: "2.67%",
-                  } },
-   {nombre: "ADCAP RETORNO TOTAL Clase A",
-   plazo: "Corto Plazo",
-   inversionMinima: 1000,
-   moneda: "Pesos",
-   rescate: "24hs",
-   tipoRenta: "Renta Fija",
-   valorCuotaparte: 24.4339,
-   rentabilidad: {ultimoAño: "47.90%",
-                  ultimoMes: "4.42%",
-                  } },
-   {nombre: "ALLARIA COBERTURA DINÁMICA Clase A",
-   plazo: "Mediano Plazo",
-   inversionMinima: 1000,
-   moneda: "Pesos",
-   rescate: "48hs",
-   tipoRenta: "Renta Fija",
-   valorCuotaparte: 1.3935,
-   rentabilidad: {ultimoAño: "39.35%",
-                  ultimoMes: "1.3935%",
-                  } },
-   {nombre: "ARGENFUNDS ABIERTO PYMES Clase B",
-   plazo: "Mediano Plazo",
-   inversionMinima: 10000,
-   moneda: "Pesos",
-   rescate: "48hs",
-   tipoRenta: "Renta Fija",
-   valorCuotaparte: 3.2272,
-   rentabilidad: {ultimoAño: "36.64%",
-                  ultimoMes: "2.14%",
-                  } },];
-const Agresivo = [
-    {nombre: "ADCAP BALANCEADO Clase A",
-    plazo: "Mediano/Largo",
-    inversionMinima: 500,
-    moneda: "Pesos",
-    rescate: "48hs",
-    tipoRenta: "Retorno Total",
-    valorCuotaparte: 6.4304,
-    rentabilidad: {ultimoAño: "39.52%",
-                   ultimoMes: "2.06%",
-                   } },
-   
-   {nombre: "ALLARIA ACCIONES Clase A",
-   plazo: "Largo Plazo",
-   inversionMinima: 1000,
-   moneda: "Pesos",
-   rescate: "48hs",
-   tipoRenta: "Renta Variable",
-   valorCuotaparte: 33.7802,
-   rentabilidad: {ultimoAño: "53.68%",
-                  ultimoMes: "13.41%",
-                  } },
-   {nombre: "TORONTO TRUST ARGENTINA 2021 Clase A",
-   plazo: "Mediano/Largo Plazo",
-   inversionMinima: 1000,
-   moneda: "Pesos",
-   rescate: "48hs",
-   tipoRenta: "Renta Mixta",
-   valorCuotaparte: 24.4339,
-   rentabilidad: {ultimoAño: "1.85%",
-                  ultimoMes: "2.03%",
-                  } },
-   {nombre: "BALANZ ACCIONES Clase B",
-   plazo: "Largo Plazo",
-   inversionMinima: 20000,
-   moneda: "Pesos",
-   rescate: "48hs",
-   tipoRenta: "Renta Variable",
-   valorCuotaparte: 5.64,
-   rentabilidad: {ultimoAño: "13.56%",
-                  ultimoMes: "57.13%",
-                  } },
-   {nombre: "CMA ACCIONES Clase A",
-   plazo: "Largo Plazo",
-   inversionMinima: 10000,
-   moneda: "Pesos",
-   rescate: "48hs",
-   tipoRenta: "Renta Variable",
-   valorCuotaparte: 3.2251,
-   rentabilidad: {ultimoAño: "51.21%",
-                  ultimoMes: "10.94%",
-                  } },];
+class FondoDeInversion {
+    constructor(nombre, plazo, inversionMinima, moneda, rescate, tipoRenta, valorCuotaparte, ultimoAño, ultimoMes, perfil) {
+     this.nombre = nombre;
+     this.plazo = plazo;
+     this.inversionMinima = inversionMinima;
+     this.moneda = moneda;
+     this.rescate = rescate;
+     this.tipoRenta = tipoRenta;
+     this.valorCuotaparte = valorCuotaparte;
+     this.rentabilidad = {ultimoAño: ultimoAño,
+                          ultimoMes: ultimoMes};
+     this.perfil = perfil;
+    }
+};
+
+const listaPerfiles = ["Conservador", "Moderado", "Agresivo"];
+const listaFondos = [];
+
+listaFondos.push(new FondoDeInversion("ADCAP PESOS PLUS Clase A","Corto Plazo", 1000, "Pesos", "48hs", "Renta Fija", 10.4625, "46%", "3%", "Conservador"));
+listaFondos.push(new FondoDeInversion("FIMA PREMIUM Clase A", "Muy Corto Plazo", 1000, "Pesos", "Inmediato", "Renta Fija", 12.1322, "35.73%", "3.19%", "Conservador"));
+listaFondos.push(new FondoDeInversion("GALILEO AHORRO Clase A", "Muy Corto Plazo", 1000, "Pesos", "24hs", "Renta Fija", 24.4339, "47.90%", "4.42%", "Conservador"));
+listaFondos.push(new FondoDeInversion("TORONTO TRUST AHORRO Clase A", "Corto Plazo", 1000, "Pesos", "Inmediato", "Money Market", 7.3082, "37.23%", "3.29%", "Conservador"));
+listaFondos.push(new FondoDeInversion("TORONTO TRUST LIQUIDEZ DÓLAR Clase A - Divisa", "Corto Plazo", 1000, "Dólares", "48hs", "Renta Fija", 1.0731, "-0.24%", "-.05%", "Conservador"));
+
+listaFondos.push(new FondoDeInversion("ADCAP BALANCEADO II Clase A", "Corto Plazo", 1000, "Pesos", "48hs", "Renta Fija", 2.0810, "49.04%", "-0.86%", "Moderado"));
+listaFondos.push(new FondoDeInversion("ADCAP RENTA FIJA ARGENTINA Clase A", "Corto Plazo",  1000, "Pesos", "48hs", "Dolar Linked", 3.4528, "32.40%", "2.67%", "Moderado"));
+listaFondos.push(new FondoDeInversion("ADCAP RETORNO TOTAL Clase A", "Corto Plazo", 1000, "Pesos", "24hs", "Renta Fija", 24.4339, "47.90%", "4.42%", "Moderado"));
+listaFondos.push(new FondoDeInversion("ALLARIA COBERTURA DINÁMICA Clase A", "Mediano Plazo", 1000, "Pesos", "48hs", "Renta Fija", 1.3935, "39.35%", "1.3935%", "Moderado"));
+listaFondos.push(new FondoDeInversion("ARGENFUNDS ABIERTO PYMES Clase B", "Mediano Plazo", 10000, "Pesos", "48hs", "Renta Fija", 3.2272, "36.64%", "2.14%", "Moderado"));
+
+listaFondos.push(new FondoDeInversion("ADCAP BALANCEADO Clase A", "Mediano/Largo", 500, "Pesos", "48hs", "Retorno Total", 6.4304, "39.52%", "2.06%", "Agresivo"));
+listaFondos.push(new FondoDeInversion("ALLARIA ACCIONES Clase A", "Largo Plazo", 1000, "Pesos", "48hs", "Renta Variable", 33.7802, "53.68%", "13.41%", "Agresivo"));
+listaFondos.push(new FondoDeInversion("TORONTO TRUST ARGENTINA 2021 Clase A", "Mediano/Largo Plazo", 1000, "Pesos", "48hs", "Renta Mixta", 24.4339, "1.85%", "2.03%", "Agresivo"));
+listaFondos.push(new FondoDeInversion("BALANZ ACCIONES Clase B", "Largo Plazo", 20000, "Pesos", "48hs", "Renta Variable", 5.64, "13.56%", "57.13%", "Agresivo"));
+listaFondos.push(new FondoDeInversion("CMA ACCIONES Clase A", "Largo Plazo", 2000, "Pesos", "48hs", "Renta Variable", 3.2251, "51.21%", "10.94%", "Agresivo"));
 
 let opcionSuma = [];
 
@@ -219,15 +97,15 @@ function opcionesResultadoFinal(resultadoFinal){
 
     if (resultadoFinal <= 13) {
         perfilCalculado = listaPerfiles[0];
-        resultadosParaMostrar = Conservador;
+        resultadosParaMostrar = listaFondos.filter(elemento => elemento.perfil == "Conservador");
 
     } else if (resultadoFinal <= 26) {
         perfilCalculado = listaPerfiles[1];
-        resultadosParaMostrar = Moderado;
+        resultadosParaMostrar = listaFondos.filter(elemento => elemento.perfil == "Moderado");
         
     } else {
         perfilCalculado = listaPerfiles[2]
-        resultadosParaMostrar = Agresivo;
+        resultadosParaMostrar = listaFondos.filter(elemento => elemento.perfil == "Agresivo");
     }
 
     alert(`${nombreUsuario}, según las opciones indicadas tu perfil corresponde al Perfil ${perfilCalculado}`);
@@ -267,53 +145,4 @@ for (const recorrido in listaPreguntas){
 
 opcionesResultadoFinal(calcularResultadoFinal(opcionSuma));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* opcion[0] = parseInt(prompt("1 - Mi conocimiento sobre Mercado de Capitales es:\n 1) Nulo\n 2) Poco\n 3)  Mucho\n 4) Profesional"));
-
-opcion[1] = parseInt(prompt("2 - He invertido en el Mercado de Capitales:\n 1) Nunca \n 2) Pocas veces y no me gustó\n 3) Mucho y ya conozco los riesgos\n 4) Siempre, lo hago habitualmente "));
-
-opcion[2] = parseInt(prompt("3 - En caso de una baja en el valor de mis activos:\n 1) Rescataría todo asumiendo la pérdida \n 2) Rescataría una parte \n 3) Conservaría mis activos esperando a que suban, pese a que puedan bajar más\n 4) Aprovecharía la oportunidad y agregaría más capital "));
-
-opcion4 = parseInt(prompt("4 - El porcentaje de mis ingresos mensuales que destino a pago de deudas de préstamos, tarjetas de crédito, y demás, es:\n 1) Más del 50% \n 2) Entre un 26% y 50% \n 3) Entre el 11% y 25%\n 4) Menos del 10% "));
-
-opcion5 = parseInt(prompt("5 - Mi objetivo final es:\n 1) Mantener el valor de mi dinero con una rentabilidad mínima \n 2) Tener una ganancia superior a la de un Plazo Fijo, aunque se encuentre sujeta a variaciones del mercado \n 3) Obtener una ganancia significativa, corriendo el riesgo de perder más de la mitad de la inversión inicial"));
-
-opcion6 = parseInt(prompt("6 - Tengo a mi cargo:\n 1) Ninguna persona \n 2) 1 persona \n 3) 2 a 3 personas\n 4) Más de 3 personas "));
-
-opcion7 = parseInt(prompt("7 - La cantidad de mis ahorros que estoy dispuesto a invertir en el Mercado de Capitales es: \n 1) Menor al 25% \n 2) Entre el 26% y 50%\n 3) Entre el 51% y 75% \n 4) Más del 76%"));
-
-opcion8 = parseInt(prompt("8 - Necesitaré el dinero que invierto en:\n 1) Menos de 2 meses \n 2) En medio año \n 3) En un año \n 4) En más de un año "));
-
-opcion9 = parseInt(prompt("9 - Del total de mi dinero estoy dispuesto a asumir una pérdida de \n 1)Ninguna pérdida \n 2) Hasta un 10% \n 3) Hasta un 25%\n 4) Hasta un 50% \n 5) Más del 50%"));
-
-opcion10 = parseInt(prompt("10 - Me gustaría invertir \n 1) El total de mis Activos en Renta Fija a corto plazo (Bonos, Fonodos Comunes de Inversión, Fideiomisos Financieros) \n 2) La mitad de mis Activos en Renta Fija y el resto en ACCIONES, y demás Activos de Renta Variable \n 3) El total de mis Activos en Renta Variable ")); */
 
