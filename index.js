@@ -176,7 +176,7 @@ filtrarMayorRentabilidadAnio();
 function filtrarMenorPlazo (valor){
     let resultadosParaMostrar = [];
     resultadosParaMostrar = listaFondos.filter(elemento => elemento.plazo == valor);
-    document.write(`Se muestran ${resultadosParaMostrar.length} resultados para inversiones de ${valor} lazo: <br><br>`)
+    document.write(`Se muestran ${resultadosParaMostrar.length} resultados para inversiones de ${valor} plazo: <br><br>`)
     for (const recorrerArray in resultadosParaMostrar) {
         document.write(`- ${resultadosParaMostrar[recorrerArray].nombre}<br>`);
         document.write(`- ${resultadosParaMostrar[recorrerArray].plazo} plazo.<br><br>`);
