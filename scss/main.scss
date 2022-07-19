@@ -1,4 +1,8 @@
 @import "./parciales/index";
+@import "./parciales/test";
+@import "./parciales/mediaqueries";
+@import "./parciales/animaciones";
+
 
 * {
     margin: 0;
@@ -38,6 +42,9 @@
           margin: 5px;
         }
     }
+    & a{
+      text-decoration: none;
+    }
     &__nav{
       align-self: flex-end;
 
@@ -70,6 +77,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 
   &__titulo{
     font-weight: 300;
@@ -79,7 +87,8 @@
   }
 }
 
-.pie{
+.cuerpo{
+  color: aliceblue;
   background-color:#183e65;
   -webkit-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
   -moz-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
@@ -88,5 +97,18 @@
   -webkit-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
   box-shadow: -1px -5px 11px -6px rgba(0,0,0,0.75);
-  height: 300px;
+  min-height: 150px;
+  height: max-content;
+}
+
+.pie{
+  background-color:#384551;
+  -webkit-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+  -moz-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+  box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+  
+  -webkit-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+  box-shadow: -1px -5px 11px -6px rgba(0,0,0,0.75);
+  height: 300px; 
 }

@@ -1,0 +1,25 @@
+.resultados{
+    margin: 100px;
+    padding: 20px;
+    color: aliceblue;
+    background-color: rgba(240,255,255,0.1);
+    border-radius: 15px;
+    
+    &__fondo{
+        font-weight: 300;
+    }
+}
+
+.btnTest{
+    color: aliceblue;
+    border-color: aliceblue;
+    border-radius: 12px;
+    background: none;
+    padding: 10px;
+    transition: transform 1s;
+/*     animation:  heartbeat 3s ease-in-out infinite both; */
+    &:hover{
+        transform: scale(110%);
+        cursor: pointer;
+    }
+}
