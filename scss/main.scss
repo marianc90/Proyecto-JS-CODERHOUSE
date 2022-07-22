@@ -80,11 +80,15 @@
   flex-wrap: wrap;
 
   &__titulo{
+    margin: 30px;
     font-weight: 300;
     font-size: 40px;
     color: aliceblue;
     text-align: center;
   }
+  &__fci{
+    flex-direction: column;
+  };
 }
 
 .cuerpo{

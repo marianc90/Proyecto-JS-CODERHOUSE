@@ -31,19 +31,31 @@
         </nav>
     </header>
     <main>
-        <div class="banner">
+        <div class="banner banner__fci">
             <h1 class="banner__titulo">
                 FONDOS COMUNES DE INVERSION,<br> 
-                CONOZCA TODAS LAS OPCIONES<br>
-                <button id="btnFilter" class="btnTest">FILTRAR POR</button>
+                CONOZCA TODAS LAS OPCIONES<br>  
             </h1>
-        </div>
-        <div class="cuerpo" id="cuerpo_fci">
+        <div>
+            <span style="color: white">Filtrar por: </span>
 
+            <button id="btnFilterTodos" class="btnEstandar">TODOS</button>
+            <button id="btnFilterMinimoInv" class="btnEstandar">MINIMO DE INVERSION REQUERIDO</button>
+            <button id="btnFilterMayorRenta" class="btnEstandar">MAYOR RENTABILIDAD EN EL AÑO</button>
+            <button id="btnFilterPlazo" class="btnEstandar">PLAZO DE PERMANENCIA</button>
+            <button id="btnFilterMoneda" class="btnEstandar">MONEDA</button>
         </div>
+             
+        </div>
+        
+        <div class="cuerpo" id="cuerpo_fci">
+            
+
+        </div>  
     </main>
     <footer class="pie">
     </footer>
-    <script src="../index.js"></script>
+    <script src="../scripts/index.js" type="module"></script>
+    <script src="../scripts/fci.js" type="module"></script>
 </body>
 </html>
