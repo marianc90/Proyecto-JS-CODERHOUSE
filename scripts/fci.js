@@ -55,7 +55,7 @@ function filtrarPerfil (valor){
     cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 // IMPRESION DE RESULTADOS MEDIANTE BUCLE PARA APLICAR A CADA UNO DE LOS FILTROS
-function imprimirFondos(resultadosParaMostrar, cuerpoFCI){
+export function imprimirFondos(resultadosParaMostrar, cuerpoFCI){
     for (const recorrerArray in resultadosParaMostrar) {
         let li = document.createElement("li"); //Creamos el Li contenedor del resultado a mostrar en lista
         li.innerHTML = `<span id="enlace_${resultadosParaMostrar[recorrerArray].id}">${resultadosParaMostrar[recorrerArray].nombre}</span><br><br>`; 

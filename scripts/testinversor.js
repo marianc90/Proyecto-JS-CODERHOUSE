@@ -1,5 +1,6 @@
 import { listaFondos } from "../scripts/index.js";
-import { sesion } from "../scripts/session.js"
+import { sesion } from "../scripts/session.js"; 
+import { imprimirFondos } from "./fci.js";
 
 
 // Declaración de lista de preguntas que luego se renderizaran en el formulario
@@ -114,7 +115,9 @@ function opcionesResultadoFinal(perfilCalculado){
                                 Se muestran las ${resultadosParaMostrar.length} opciones que más se adecúan al mismo.<br><br>`;
     cuerpoFCI.className = "resultados";
 
-    for (const recorrerArray in resultadosParaMostrar) {
+    imprimirFondos(resultadosParaMostrar, cuerpoFCI);
+
+    /* for (const recorrerArray in resultadosParaMostrar) {
         let li = document.createElement("li");
         li.innerHTML = `<span id="enlace_${resultadosParaMostrar[recorrerArray].id}">${resultadosParaMostrar[recorrerArray].nombre}</span><br><br>`; 
         li.classList.add('lista_fci');
@@ -153,7 +156,7 @@ function opcionesResultadoFinal(perfilCalculado){
             modal.className = 'modal_fci_oculto'; 
             modal.innerHTML = '';});
     });
-    };
+    }; */
     formularioContenedor.innerHTML = '';
 };
 
@@ -183,7 +186,7 @@ function testInversor(){
         formularioContenedor.addEventListener('submit', calcularValoresIngresados);
 };
 // SI EL USUARIO ESTA REGISTRADO Y COMPLETO EL TEST, SE IMPRIMIRAN LOS RESULTADOS AUTOMATICAMENTE
-if (sesion.perfil != "") {
+if (sesion != null && sesion.perfil != "") {
     opcionesResultadoFinal(sesion.perfil);
     botonTest.remove();
 };

@@ -21,7 +21,11 @@ sesionRegistro.addEventListener('click', () => {
         cuentas.push({'usuario': usuario, 'contrasena': contrasena, 'perfil': ''});
         }
     localStorage.setItem('cuentas', JSON.stringify(cuentas));
-    alert('Se ha registrado exitosamente');
+    Swal.fire(
+        'Genial!',
+        'Se haregistrado exitosamente!',
+        'success'
+      );
     });
 
 sesionIniciar.addEventListener('click', () => {
@@ -36,11 +40,18 @@ sesionIniciar.addEventListener('click', () => {
         sesionRegistro.classList.add('none');
         usuarioNombre = sesion?.usuario ?? 'Invitado';
         sesionStatus.innerHTML = `- ( ${usuarioNombre} ) -`;
-        alert(`Bienvenido/a ${usuarioNombre}`);
+        Swal.fire({
+            icon: 'success',
+            title: `Bienvenido/a ${usuarioNombre}`,
+            showConfirmButton: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              Swal.fire('Saved!', '', 'success');
+              location.reload();}});
     } else {
         alert('No ha ingresado datos validos')
     };
-    location.reload()
+    
 });
 
 sesionCerrar.addEventListener('click', () => {
