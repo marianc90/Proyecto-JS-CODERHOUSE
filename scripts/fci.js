@@ -10,7 +10,7 @@ function mostrarTodoFondos () {
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = (`<em>Se muestran ${resultadosParaMostrar.length} resultados en total por:</em><b> orden alfabético</b>.<br><br>`);
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView();
+    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 function buscarMinimoInversion (valor){
     let resultadosParaMostrar = [];
@@ -18,7 +18,7 @@ function buscarMinimoInversion (valor){
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados por debajo de:</em> <b>${valor} Pesos/Dolares de inversión mínima: </b><br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView();
+    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 function filtrarMayorRentabilidadAnio () {
     let resultadosParaMostrar = [];
@@ -27,7 +27,7 @@ function filtrarMayorRentabilidadAnio () {
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados ordenados por: </em> <b>mayor nivel de rentabilidad</b>.<br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView();
+    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 function filtrarMenorPlazo (valor){
     let resultadosParaMostrar = [];
@@ -35,7 +35,7 @@ function filtrarMenorPlazo (valor){
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados para</em> <b>inversiones de ${valor} plazo.</b> <br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView();
+    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
 }
 function buscarMoneda (valor){
@@ -44,7 +44,7 @@ function buscarMoneda (valor){
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados en</em> <b>${valor.toUpperCase()}</b>.<br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView();
+    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 function filtrarPerfil (valor){
     let resultadosParaMostrar = [];
@@ -52,7 +52,7 @@ function filtrarPerfil (valor){
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados de </em><b>Perfil ${valor.toUpperCase()}</b>.<br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView();
+    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 // IMPRESION DE RESULTADOS MEDIANTE BUCLE PARA APLICAR A CADA UNO DE LOS FILTROS
 function imprimirFondos(resultadosParaMostrar, cuerpoFCI){

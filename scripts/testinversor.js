@@ -102,7 +102,7 @@ function calcularValoresIngresados(e){
     opcionesResultadoFinal(perfilCalculado); //LLAMADO A LA FUNCION opcionesResultadoFinal QUE MOSTRARA LOS FONDOS CUYO PERFIL COINCIDA CON EL CALCULADO PARA EL USUARIO.
 
     let header = document.getElementById('cabecera');
-    header.scrollIntoView();
+    header.scrollIntoView({ behavior: 'smooth', block: 'center' });
 };
 
  //La siguiente funcion imprime cada uno de los resultados en funcion del perfil que se le asigna como argumento
@@ -168,7 +168,7 @@ function testInversor(){
         alert("TEST INICIAL DEL INVERSOR\nDescubramos que tipo de inversor sos y que productos se ajustan a tus necesidades");
         alert(`${sesion.usuario} te plantearemos 10 situaciones en las que deberás indicar la opción que más se adecúe a tu perfil:`);
     //LLAMADO A LA FUNCION DE imprimirOpciones MEDIANTE FOR
-        formularioContenedor.scrollIntoView();
+        formularioContenedor.scrollIntoView({ behavior: 'smooth', block: 'center' });
         formularioContenedor.innerHTML = '<button id="boton_calcular" type="submit" class="none"></button>';
         for (const recorrido in listaPreguntas){
             imprimirOpciones(recorrido);
