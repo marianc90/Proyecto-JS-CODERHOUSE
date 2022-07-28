@@ -11,7 +11,7 @@
     <title>Invertir Fácil - Test del Inversor</title>
 </head>
 <body>
-    <header class="cabecera">
+    <header class="cabecera" id="cabecera">
         <a href="../index.html">
             <div class="cabecera__logo">        
                 <img class="cabecera__logo--img" src="../images/logo.png" alt="Logo header">
@@ -27,6 +27,11 @@
                 <li><a href="../pages/calculadora.html">CALCULADORA DE RENDIMIENTOS</a></li>
                 <li><a href="../pages/test.html"><strong>TEST DEL INVERSOR</strong></a></li>
                 <li><a href="../pages/faq.html">FAQ's</a></li>
+                <li id="sesion-status"></li>
+                <li id="sesion-boton">                    
+                    <button id='sesion-iniciar' class='btnEstandar'>INICIAR SESION</button>
+                    <button id='sesion-cerrar' class='btnEstandar none'>CERRAR SESION</button>
+                    <button id='sesion-registro' class='btnEstandar'>REGISTRARSE</button></li>
             </ul>
         </nav>
     </header>
@@ -44,13 +49,18 @@
             </div>
         </div>
         <div class="cuerpo" id="cuerpo_test">
+            <form id="form_test">
+                
+            </form>
+        </div>
+        <div class="modal_fci_oculto" id="modal_fci">
 
         </div>
-
     </main>
     <footer class="pie">
     </footer>
-    <script src="../scripts/index.js" type="module"></script>
+    <script src="../scripts/session.js" type="module"></script>
     <script src="../scripts/testinversor.js" type="module"></script>
+    <script src="../scripts/index.js" type="module"></script>
 </body>
 </html>

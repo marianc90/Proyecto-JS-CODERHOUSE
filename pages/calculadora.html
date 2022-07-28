@@ -27,14 +27,20 @@
                 <li><a href="../pages/calculadora.html"><strong>CALCULADORA DE RENDIMIENTOS</strong></a></li>
                 <li><a href="../pages/test.html">TEST DEL INVERSOR</a></li>
                 <li><a href="../pages/faq.html">FAQ's</a></li>
+                <li id="sesion-status"></li>
+                <li id="sesion-boton">
+                    <button id='sesion-iniciar' class='btnEstandar'>INICIAR SESION</button>
+                    <button id='sesion-cerrar' class='btnEstandar none'>CERRAR SESION</button>
+                    <button id='sesion-registro' class='btnEstandar'>REGISTRARSE</button></li>
+                </li>
             </ul>
         </nav>
     </header>
     <main>
         <div class="banner">
             <h1 class="banner__titulo">
-                INVIERTA A SU MEDIDA,<br> 
-                CONOZCA LOS RIESGOS Y BENEFICIOS
+                CALCULE SUS RENDIMIENTOS,<br> 
+                EN FUNCION DE LOS DATOS HISTORICOS
             </h1>
         </div>
         <div class="cuerpo" id="cuerpo_calculadora">
@@ -43,6 +49,7 @@
     </main>
     <footer class="pie">
     </footer>
-    <script src="../index.js"></script>
+    <script src="../scripts/session.js" type="module"></script>
+    <script src="../scripts/index.js" type="module"></script>
 </body>
 </html>
