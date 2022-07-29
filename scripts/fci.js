@@ -1,5 +1,5 @@
 import { listaFondos } from "../scripts/index.js";
-
+import { imprimirFondos } from "../scripts/imprimirfondos.js";
 
 //FILTROS Y BUSQUEDA------------------------------------------------------------------------------------------------------------
 function mostrarTodoFondos () {
@@ -12,7 +12,19 @@ function mostrarTodoFondos () {
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
     cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
-function buscarMinimoInversion (valor){
+async function buscarMinimoInversion (){
+    let { value: valor} = await Swal.fire({
+        title: 'Seleccione el valor de su inversión',
+        icon: 'question',
+        input: 'range',
+        inputLabel: 'Minimo',
+        inputAttributes: {
+          min: 500,
+          max: 10000,
+          step: 500
+        },
+        inputValue: 500
+      });
     let resultadosParaMostrar = [];
     resultadosParaMostrar = listaFondos.filter(elemento => elemento.inversionMinima <= valor);
     let cuerpoFCI = document.getElementById("cuerpo_fci");
@@ -29,7 +41,26 @@ function filtrarMayorRentabilidadAnio () {
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
     cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
-function filtrarMenorPlazo (valor){
+async function filtrarMenorPlazo (){
+    const inputOptions = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            'corto': 'Corto',
+            'mediano': 'Mediano',
+            'largo': 'Largo'
+          })
+        }, 1000)
+      })
+      const { value: valor } = await Swal.fire({
+        title: 'Ingrese el plazo de inversion deseado',
+        input: 'radio',
+        inputOptions: inputOptions,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'Debes elegir un valor'
+          }
+        }
+      });
     let resultadosParaMostrar = [];
     resultadosParaMostrar = listaFondos.filter(elemento => elemento.plazo == valor);
     let cuerpoFCI = document.getElementById("cuerpo_fci");
@@ -38,7 +69,25 @@ function filtrarMenorPlazo (valor){
     cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
 }
-function buscarMoneda (valor){
+async function buscarMoneda (){
+    const inputOptions = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            'pesos': 'Pesos Argentinos',
+            'dolares': 'Dólares Estadounidenses'
+          })
+        }, 300)
+      })
+      const { value: valor } = await Swal.fire({
+        title: 'Ingrese la moneda',
+        input: 'radio',
+        inputOptions: inputOptions,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'Debes elegir un valor'
+          }
+        }
+      });
     let resultadosParaMostrar = [];
     resultadosParaMostrar = listaFondos.filter(elemento => elemento.moneda == valor);
     let cuerpoFCI = document.getElementById("cuerpo_fci");
@@ -46,7 +95,26 @@ function buscarMoneda (valor){
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
     cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
-function filtrarPerfil (valor){
+async function filtrarPerfil (){
+    const inputOptions = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            'Conservador': 'Conservador',
+            'Moderado': 'Moderado',
+            'Agresivo': 'Agresivo'
+          })
+        }, 500)
+      })
+      const { value: valor } = await Swal.fire({
+        title: 'Ingrese el perfil de riesgo deseado',
+        input: 'radio',
+        inputOptions: inputOptions,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'Debes elegir un valor'
+          }
+        }
+      });
     let resultadosParaMostrar = [];
     resultadosParaMostrar = listaFondos.filter(elemento => elemento.perfil == valor);
     let cuerpoFCI = document.getElementById("cuerpo_fci");
@@ -54,65 +122,21 @@ function filtrarPerfil (valor){
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
     cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
-// IMPRESION DE RESULTADOS MEDIANTE BUCLE PARA APLICAR A CADA UNO DE LOS FILTROS
-export function imprimirFondos(resultadosParaMostrar, cuerpoFCI){
-    for (const recorrerArray in resultadosParaMostrar) {
-        let li = document.createElement("li"); //Creamos el Li contenedor del resultado a mostrar en lista
-        li.innerHTML = `<span id="enlace_${resultadosParaMostrar[recorrerArray].id}">${resultadosParaMostrar[recorrerArray].nombre}</span><br><br>`; 
-        //Insertamos un span con el id dinamico para luego llamarlo mediante getElementbyID
-        cuerpoFCI.append(li);
-        li.classList.add('lista_fci');// esta clase solo agregar pointer al cursor
-        let botonMostrar = document.getElementById(`enlace_${resultadosParaMostrar[recorrerArray].id}`);//llamamos al span y lo guardamos en botonMostrar
-        let modal = document.getElementById('modal_fci');//llamamos a al modal oculto
-        
-        botonMostrar.addEventListener("click", () => {
-        modal.className = 'modal_fci';//hacemos al modal visible mediante modificacion de la clase
-        modal.innerHTML = '';//lo limpieamos para que no se sobreescriba
-        modal.innerHTML = `<div class='modal_fci_titulo'><h1>${resultadosParaMostrar[recorrerArray].nombre}</h1></div>
-                           <div class='modal_fci_contenido'> <p>Plazo de permanencia sugerido: <b>${(resultadosParaMostrar[recorrerArray].plazo).toUpperCase()}</b></p>
-                                                             <p>Monto minimo de inversion: <b>$${resultadosParaMostrar[recorrerArray].inversionMinima} ${(resultadosParaMostrar[recorrerArray].moneda).toUpperCase()}</b></p>
-                                                             <p>Tiempo de rescate: <b>${resultadosParaMostrar[recorrerArray].rescate}</b></p>
-                                                             <p>Tipo de Renta: <b>${resultadosParaMostrar[recorrerArray].tipoRenta}</b></p>
-                                                             <p>Valor de la cuotaparte: <b>${resultadosParaMostrar[recorrerArray].valorCuotaparte}</b></p>
-                                                             <br>
-                                                             <center><b>RENTABILIDAD</b><p> Ultimo año: <b id='renta-anio'>%${resultadosParaMostrar[recorrerArray].rentabilidad.ultimoAño}</b>
-                                                                             Ultimo mes: <b id='renta-mes'>%${resultadosParaMostrar[recorrerArray].rentabilidad.ultimoMes}</b></p></center>
-                                                             <center><b><p>PERFIL ${resultadosParaMostrar[recorrerArray].perfil}</b></p></center>
-            
-                            </div>
-                            <div class="modal_fci_botones" id="modal_fci_botones">
-                            <div class="modal_fci_suscribir" id="modal_fci_suscribir">SUSCRIBIR </div>
-                            <div class="modal_fci_cerrar" id="modal_fci_cerrar">CERRAR </div>
-                            </div>`
-        // ASIGNACION DE COLOR SEGUN SI RENTABILIDAD ES POSITIVA O NEGATIVA
-        let rentaAnio = document.getElementById('renta-anio');
-        let rentaMes = document.getElementById('renta-mes');
-        resultadosParaMostrar[recorrerArray].rentabilidad.ultimoAño > 0 ? rentaAnio.className = 'verde' : rentaAnio.className = 'rojo';
-        resultadosParaMostrar[recorrerArray].rentabilidad.ultimoMes > 0 ? rentaMes.className = 'verde' : rentaMes.className = 'rojo';
-        //creacion del boton cerrar
-        let botonCerrar = document.getElementById('modal_fci_cerrar')
-        botonCerrar.addEventListener('click', () => {
-            modal.className = 'modal_fci_oculto'; 
-            modal.innerHTML = '';});
-        });
-        };
-}
-
 //BOTON FILTROS
 let botonFilterTodos = document.getElementById('btnFilterTodos');
 botonFilterTodos.addEventListener("click", mostrarTodoFondos);
 
 let botonFilterMinimoInv = document.getElementById('btnFilterMinimoInv');
-botonFilterMinimoInv.addEventListener("click", () => buscarMinimoInversion(prompt("Ingrese el monto mínimo a invertir deseado: 500/1000/2000")));
+botonFilterMinimoInv.addEventListener("click", async () => buscarMinimoInversion());
 
 let botonFilterMayorRenta = document.getElementById('btnFilterMayorRenta');
 botonFilterMayorRenta.addEventListener("click", filtrarMayorRentabilidadAnio);
 
 let botonFilterPlazo = document.getElementById('btnFilterPlazo');
-botonFilterPlazo.addEventListener("click", () => filtrarMenorPlazo(prompt("Ingrese el plazo de la inversion deseado (Corto/Mediano/Largo").toLowerCase()));
+botonFilterPlazo.addEventListener("click", () => filtrarMenorPlazo());
 
 let botonFilterMoneda = document.getElementById('btnFilterMoneda');
-botonFilterMoneda.addEventListener("click", () => buscarMoneda(prompt("Ingrese la moneda a filtrar (pesos / dolares)").toLowerCase()));
+botonFilterMoneda.addEventListener("click", () => buscarMoneda());
 
 let botonFilterPerfil = document.getElementById('btnFilterPerfil');
-botonFilterPerfil.addEventListener("click", () => filtrarPerfil(prompt("Ingrese el Perfil deseado (Conservador / Moderado / Agresivo)")));
+botonFilterPerfil.addEventListener("click", () => filtrarPerfil());

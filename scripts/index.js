@@ -37,5 +37,6 @@ function creandoFondos(){
     listaFondos.push(new FondoDeInversion("CMA ACCIONES Clase A", "largo", 2000, "pesos", "48hs", "Renta Variable", 3.2251, 51.21, 10.94, "Agresivo", listaFondos));
 };
 creandoFondos();
+
 export { listaFondos };
 

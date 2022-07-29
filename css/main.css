@@ -114,7 +114,9 @@
 }
 
 .verde {
-  color: greenyellow;
+  background-color: green;
+  color: white;
+  border-radius: 5px;
   padding: 2px;
 }
 

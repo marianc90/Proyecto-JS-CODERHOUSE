@@ -1,6 +1,6 @@
 import { listaFondos } from "../scripts/index.js";
 import { sesion } from "../scripts/session.js"; 
-import { imprimirFondos } from "./fci.js";
+import { imprimirFondos } from "../scripts/imprimirfondos.js";
 
 
 // Declaración de lista de preguntas que luego se renderizaran en el formulario
@@ -96,14 +96,16 @@ function calcularValoresIngresados(e){
     sesionAModificar.perfil = perfilCalculado;
     sessionStorage.setItem('sesion', JSON.stringify(sesionAModificar));
 
-    let mensaje = `${sesion.usuario}, según las opciones indicadas tu perfil corresponde al Perfil ${perfilCalculado}\n
-    Las opciones de inversión para el Perfil ${perfilCalculado}, son las siguientes: `;
-    alert(mensaje);     
+    Swal.fire(
+        `Perfil ${perfilCalculado}`,
+        `${sesion.usuario}, las opciones de inversión para el Perfil ${perfilCalculado}, son las siguientes:`,
+        'success'
+    );      
     
     opcionesResultadoFinal(perfilCalculado); //LLAMADO A LA FUNCION opcionesResultadoFinal QUE MOSTRARA LOS FONDOS CUYO PERFIL COINCIDA CON EL CALCULADO PARA EL USUARIO.
 
     let header = document.getElementById('cabecera');
-    header.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    header.scrollIntoView();
 };
 
  //La siguiente funcion imprime cada uno de los resultados en funcion del perfil que se le asigna como argumento
@@ -114,49 +116,7 @@ function opcionesResultadoFinal(perfilCalculado){
     cuerpoFCI.innerHTML = `<h1>${sesion.usuario},</h1><br>Tu Perfil es <h2>${perfilCalculado}</h2> <br><br>
                                 Se muestran las ${resultadosParaMostrar.length} opciones que más se adecúan al mismo.<br><br>`;
     cuerpoFCI.className = "resultados";
-
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-
-    /* for (const recorrerArray in resultadosParaMostrar) {
-        let li = document.createElement("li");
-        li.innerHTML = `<span id="enlace_${resultadosParaMostrar[recorrerArray].id}">${resultadosParaMostrar[recorrerArray].nombre}</span><br><br>`; 
-        li.classList.add('lista_fci');
-        cuerpoFCI.append(li);
-        let botonMostrar = document.getElementById(`enlace_${resultadosParaMostrar[recorrerArray].id}`);//llamamos al span y lo guardamos en botonMostrar
-        let modal = document.getElementById('modal_fci');//llamamos a al modal oculto
-        
-        botonMostrar.addEventListener("click", () => {
-        modal.className = 'modal_fci';//hacemos al modal visible mediante modificacion de la clase
-        modal.innerHTML = '';//lo limpieamos para que no se sobreescriba
-        modal.innerHTML = `<div class='modal_fci_titulo'><h1>${resultadosParaMostrar[recorrerArray].nombre}</h1></div>
-                       <div class='modal_fci_contenido'> 
-                                     <p>Plazo de permanencia sugerido: <b>${(resultadosParaMostrar[recorrerArray].plazo).toUpperCase()}</b></p>
-                                    <p>Monto minimo de inversion: <b>$${resultadosParaMostrar[recorrerArray].inversionMinima} ${(resultadosParaMostrar[recorrerArray].moneda).toUpperCase()}</b></p>
-                                    <p>Tiempo de rescate: <b>${resultadosParaMostrar[recorrerArray].rescate}</b></p>
-                                    <p>Tipo de Renta: <b>${resultadosParaMostrar[recorrerArray].tipoRenta}</b></p>
-                                    <p>Valor de la cuotaparte: <b>${resultadosParaMostrar[recorrerArray].valorCuotaparte}</b></p>
-                                    <br>
-                                                             <center><b>RENTABILIDAD</b><p> Ultimo año: <b id='renta-anio'>%${resultadosParaMostrar[recorrerArray].rentabilidad.ultimoAño}</b>
-                                                                             Ultimo mes: <b id='renta-mes'>%${resultadosParaMostrar[recorrerArray].rentabilidad.ultimoMes}</b></p></center>
-                                                             <center><b><p>PERFIL ${resultadosParaMostrar[recorrerArray].perfil}</b></p></center>
-            
-                            </div>
-                            <div class="modal_fci_botones" id="modal_fci_botones">
-                            <div class="modal_fci_suscribir" id="modal_fci_suscribir">SUSCRIBIR </div>
-                            <div class="modal_fci_cerrar" id="modal_fci_cerrar">CERRAR </div>
-                            </div>`
-        // ASIGNACION DE COLOR SEGUN SI RENTABILIDAD ES POSITIVA O NEGATIVA
-        let rentaAnio = document.getElementById('renta-anio');
-        let rentaMes = document.getElementById('renta-mes');
-        resultadosParaMostrar[recorrerArray].rentabilidad.ultimoAño > 0 ? rentaAnio.className = 'verde' : rentaAnio.className = 'rojo';
-        resultadosParaMostrar[recorrerArray].rentabilidad.ultimoMes > 0 ? rentaMes.className = 'verde' : rentaMes.className = 'rojo';
-        //creacion del boton cerrar
-        let botonCerrar = document.getElementById('modal_fci_cerrar')
-        botonCerrar.addEventListener('click', () => {
-            modal.className = 'modal_fci_oculto'; 
-            modal.innerHTML = '';});
-    });
-    }; */
     formularioContenedor.innerHTML = '';
 };
 
@@ -164,26 +124,34 @@ function opcionesResultadoFinal(perfilCalculado){
 function testInversor(){
  // Si el valor importado de sesion es null, se requerira incio de sesion
     if (sesion == null) {
-        return alert('Debe iniciar sesion antes de continuar');
+        
+        return Swal.fire(
+            `Debe identificarse`,
+            `Para iniciar el test, debe estar registrado y logueado en el sistema.`,
+            'error'
+        );  
     };
 
-    // Inicio del Test
-        alert("TEST INICIAL DEL INVERSOR\nDescubramos que tipo de inversor sos y que productos se ajustan a tus necesidades");
-        alert(`${sesion.usuario} te plantearemos 10 situaciones en las que deberás indicar la opción que más se adecúe a tu perfil:`);
-    //LLAMADO A LA FUNCION DE imprimirOpciones MEDIANTE FOR
-        formularioContenedor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        formularioContenedor.innerHTML = '<button id="boton_calcular" type="submit" class="none"></button>';
-        for (const recorrido in listaPreguntas){
-            imprimirOpciones(recorrido);
-        };
-        botonTest.remove();
-    //Se llama al boton de submit para bajarlo luego de la impresion de opciones y darle estilos y visibilidad.
-        formularioContenedor.innerHTML += '<br>';
-        let botonCalcular = document.getElementById('boton_calcular');
-        botonCalcular.innerHTML = `Calcular`;
-        botonCalcular.className = 'btnEstandar';
-        formularioContenedor.appendChild(botonCalcular);
-        formularioContenedor.addEventListener('submit', calcularValoresIngresados);
+// Inicio del Test
+    Swal.fire(
+        `TEST INICIAL DEL INVERSOR`,
+        `${sesion.usuario}, descubramos que tipo de inversor sos y que productos se ajustan a tus necesidades.`,
+        'info'
+    );    
+//LLAMADO A LA FUNCION DE imprimirOpciones MEDIANTE FOR
+    formularioContenedor.scrollIntoView({block: 'start'});
+    formularioContenedor.innerHTML = '<button id="boton_calcular" type="submit" class="none"></button>';
+    for (const recorrido in listaPreguntas){
+        imprimirOpciones(recorrido);
+    };
+    botonTest.remove();
+//Se llama al boton de submit para bajarlo luego de la impresion de opciones y darle estilos y visibilidad.
+    formularioContenedor.innerHTML += '<br>';
+    let botonCalcular = document.getElementById('boton_calcular');
+    botonCalcular.innerHTML = `Calcular`;
+    botonCalcular.className = 'btnEstandar';
+    formularioContenedor.appendChild(botonCalcular);
+    formularioContenedor.addEventListener('submit', calcularValoresIngresados);
 };
 // SI EL USUARIO ESTA REGISTRADO Y COMPLETO EL TEST, SE IMPRIMIRAN LOS RESULTADOS AUTOMATICAMENTE
 if (sesion != null && sesion.perfil != "") {
