@@ -8,7 +8,7 @@ let sesion = (JSON.parse(sessionStorage.getItem('sesion'))) || null ;
 let usuarioNombre = sesion?.usuario ?? 'Invitado';
 
 let sesionStatus = document.getElementById('sesion-status');
-sesionStatus.innerHTML = `- ( ${usuarioNombre} ) -`;
+sesionStatus.innerHTML = `- ( ${usuarioNombre} ) - $${sesion?.pesos ?? '0'} - U$${sesion?.dolares ?? '0'}`;
 
 sesion && sesionIniciar.classList.add('none');
 sesion && sesionCerrar.classList.remove('none');
@@ -26,7 +26,7 @@ sesionRegistro.addEventListener('click', async () => {
         inputPlaceholder: 'Ingrese contraseña nueva aquí'
       });  
     if (usuario && contrasena) {
-        cuentas.push({'usuario': usuario, 'contrasena': contrasena, 'perfil': ''});
+        cuentas.push({'usuario': usuario, 'contrasena': contrasena, 'perfil': '', 'pesos': 0, 'dolares': 0, 'suscripciones': [], 'pendientes': []});
         localStorage.setItem('cuentas', JSON.stringify(cuentas));
         Swal.fire(
             `Genial ${usuario}!`,
@@ -48,16 +48,22 @@ sesionIniciar.addEventListener('click', async () => {
     let { value: usuarioIngresado } = await Swal.fire({
         title: 'Ingrese su usuario',
         input: 'text',
-        inputPlaceholder: 'Ingrese usuario aquí'
+        inputPlaceholder: 'Ingrese usuario aquí',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar'
       });  
     let { value: contrasenaIngresada } = await Swal.fire({
         title: 'Ingrese su contraseña',
         input: 'password',
-        inputPlaceholder: 'Ingrese contraseña aquí'
+        inputPlaceholder: 'Ingrese contraseña aquí',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar'
       });  
     let cuentaExistente = cuentas.find(cuenta => cuenta.usuario == usuarioIngresado);
     if (cuentaExistente && cuentaExistente.contrasena == contrasenaIngresada) {
         sesion = {...cuentaExistente};
+        sesion.pesos = parseFloat(sesion.pesos); 
+        sesion.dolares = parseFloat(sesion.dolares);
         sessionStorage.setItem('sesion', JSON.stringify(sesion));
         sesionIniciar.classList.add('none');
         sesionCerrar.classList.remove('none');

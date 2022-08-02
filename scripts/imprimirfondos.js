@@ -1,4 +1,6 @@
 // IMPRESION DE RESULTADOS MEDIANTE BUCLE PARA APLICAR A CADA UNO DE LOS FILTROS
+let valueSelected;
+
 export function imprimirFondos(resultadosParaMostrar, cuerpoFCI){
     for (const recorrerArray in resultadosParaMostrar) {
         let li = document.createElement("li"); //Creamos el Li contenedor del resultado a mostrar en lista
@@ -38,6 +40,14 @@ export function imprimirFondos(resultadosParaMostrar, cuerpoFCI){
         botonCerrar.addEventListener('click', () => {
             modal.className = 'modal_fci_oculto'; 
             modal.innerHTML = '';});
+        let botonSuscribir = document.getElementById('modal_fci_suscribir')
+        botonSuscribir.addEventListener('click', () =>{
+            valueSelected = resultadosParaMostrar[recorrerArray].id;
+            sessionStorage.setItem('valueSelected', valueSelected);
+            window.location.replace("../pages/invertir.html");
+
+        })
+        
         });
         };
 }

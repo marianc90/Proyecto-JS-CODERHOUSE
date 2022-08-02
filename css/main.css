@@ -127,11 +127,47 @@
   padding: 2px;
 }
 
+form {
+  color: white;
+}
+
+.fondos__lista {
+  color: aliceblue;
+  border-color: aliceblue;
+  border-radius: 12px;
+  background-color: #183e65;
+  padding: 10px;
+  transition: transform 1s;
+  /*     animation:  heartbeat 3s ease-in-out infinite both; */
+}
+.fondos__lista:hover {
+  cursor: pointer;
+}
+
+.detalle_fci_suscribir {
+  cursor: pointer;
+}
+
+.eliminar_lista_fci {
+  cursor: pointer;
+}
+
+.saldo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Ubuntu", sans-serif;
+}
+
+div {
+  color: white;
 }
 
 .cabecera {

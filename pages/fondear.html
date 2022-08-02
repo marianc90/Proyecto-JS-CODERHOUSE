@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-borderless/borderless.css">
     <title>Invertir Fácil - Calculadora de Rendimientos</title>
 </head>
 <body>
@@ -24,9 +25,9 @@
                 <li><a href="../index.html">HOME</a></li>
                 <li><a href="../pages/fci.html">FCI</a></li>
                 <li><a href="../pages/invertir.html">INVIERTE AHORA</a></li>
-                <li><a href="../pages/calculadora.html"><strong>CALCULADORA DE RENDIMIENTOS</strong></a></li>
+                <li><a href="../pages/fondear.html"><strong>FONDEAR</strong></a></li>
                 <li><a href="../pages/test.html">TEST DEL INVERSOR</a></li>
-                <li><a href="../pages/faq.html">FAQ's</a></li>
+                <li><a href="../pages/tenencias.html">TENENCIAS</a></li>
                 <li id="sesion-status"></li>
                 <li id="sesion-boton">
                     <button id='sesion-iniciar' class='btnEstandar'>INICIAR SESION</button>
@@ -37,19 +38,31 @@
         </nav>
     </header>
     <main>
-        <div class="banner">
+        <div class="banner banner__fondear">
             <h1 class="banner__titulo">
-                CALCULE SUS RENDIMIENTOS,<br> 
-                EN FUNCION DE LOS DATOS HISTORICOS
+                FONDEE SU CUENTA,<br> 
+                Y COMIENCE A INVERTIR
             </h1>
+            <div class="saldo" id="saldo"><p> Saldo Actual </p>
+                <div class="saldo_pesos" id="saldo_pesos"></div>
+                <div class="saldo_dolares" id="saldo_dolares"></div>
+                <form class="fondear_formulario" id="fondear_formulario">
+                    <label for="fondear_importe"> Indique el monto a cargar en su cuenta<br><br></label>
+                    <input type="number" name="fondear_importe" id="fondear_importe" value="10000" class="btnEstandar" required>
+                    <span>Pesos</span><input type="radio" name="fondear_moneda" id="fondear_pesos" required>
+                    <span>Dolares</span><input type="radio" name="fondear_moneda" id="fondear_dolares">
+                    <input type="submit" value="Fondear" class="btnEstandar">
+                </form>
+            </div>
         </div>
-        <div class="cuerpo" id="cuerpo_calculadora">
+        <div class="cuerpo" id="cuerpo_fondear">
 
         </div>
     </main>
     <footer class="pie">
     </footer>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="../scripts/fondear.js" type="module"></script>
     <script src="../scripts/session.js" type="module"></script>
     <script src="../scripts/index.js" type="module"></script>
 </body>

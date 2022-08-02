@@ -3,14 +3,20 @@
 @import "./parciales/mediaqueries";
 @import "./parciales/animaciones";
 @import "./parciales/fci";
+@import "./parciales/invertir";
+@import "./parciales/fondear";
 
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;;
+    font-family: 'Ubuntu', sans-serif;
   }
+
+div {
+  color: white;
+}
 
 .cabecera{
   position: sticky;

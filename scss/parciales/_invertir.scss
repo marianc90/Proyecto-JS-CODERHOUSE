@@ -1,0 +1,24 @@
+form {
+    color: white;
+}
+
+.fondos__lista {
+    color: aliceblue;
+    border-color: aliceblue;
+    border-radius: 12px;
+    background-color: #183e65;
+    padding: 10px;
+    transition: transform 1s;
+/*     animation:  heartbeat 3s ease-in-out infinite both; */
+    &:hover{
+        cursor: pointer;
+    }
+} 
+
+.detalle_fci_suscribir{
+    cursor: pointer;
+}
+
+.eliminar_lista_fci{
+    cursor: pointer;
+}
