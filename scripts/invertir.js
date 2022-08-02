@@ -26,6 +26,7 @@ function listaPendientesSuscripcion(){
     let totalPesos = 0;
     let totalDolares = 0;
     //PARA ELIMINAR DE PENDIENTES DE SUSCRIBIR
+    if (sesion?.pendientes) {
     sesion.pendientes.forEach(element => {
 
         let fondoEncontrado = resultadosParaMostrar.find(elemento => elemento.id == element.id) //SE TRAEN LOS DATOS SEGUN NUMERO DE ID
@@ -64,7 +65,7 @@ function listaPendientesSuscripcion(){
     div.innerHTML = `Fondos pendientes de suscripcion en Pesos: ${cantidadPendientesPesos}, TOTAL $${totalPesos}<br>
                     Fondos pendientes de suscripcion en Dolares: ${cantidadPendientesDolares}, TOTAL U$${totalDolares}`
     cuerpoPendientes.append(div);
-
+    };
 };
 
 if (sesion == null) {
