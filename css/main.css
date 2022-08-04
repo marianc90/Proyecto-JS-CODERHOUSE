@@ -236,6 +236,7 @@ div {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 20px;
 }
 .banner__titulo {
   margin: 30px;

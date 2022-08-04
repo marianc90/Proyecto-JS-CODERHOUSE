@@ -3,8 +3,8 @@ import { sesion } from "../scripts/session.js";
 let formularioFondear = document.getElementById('fondear_formulario');
 let saldoActualPesos = document.getElementById('saldo_pesos');
 let saldoActualDolares = document.getElementById('saldo_dolares');
-saldoActualPesos.innerHTML = `$ ${sesion?.pesos ?? ""}`;
-saldoActualDolares.innerHTML = `U$ ${sesion?.dolares ?? ""}`;
+saldoActualPesos.innerHTML = `- $ ${sesion?.pesos ?? ""}`;
+saldoActualDolares.innerHTML = `- U$ ${sesion?.dolares ?? ""}`;
 
 formularioFondear.addEventListener('submit',async (e) => {
     e.preventDefault();

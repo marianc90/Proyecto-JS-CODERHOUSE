@@ -27,7 +27,7 @@
                 <li><a href="../pages/invertir.html">INVIERTE AHORA</a></li>
                 <li><a href="../pages/fondear.html">FONDEAR</a></li>
                 <li><a href="../pages/test.html">TEST DEL INVERSOR</a></li>
-                <li><a href="../pages/tenencias.html"><strong>TENENCIAS</strong></a></li>
+                <li><a id="tenencias-indicador" href="../pages/tenencias.html"><strong>TENENCIAS</strong></a></li>
                 <li id="sesion-status"></li>
                 <li id="sesion-boton">                    
                     <button id='sesion-iniciar' class='btnEstandar'>INICIAR SESION</button>
@@ -38,17 +38,21 @@
     </header>
     <main>
         <div class="banner">
-            <h1 class="banner__titulo">
+            <h1 class="banner__titulo" id="banner_titulo">
                 AUN NO TIENE FONDOS SUSCRIPTOS<br> 
             </h1>
+            <div id="tenencias_contenedor" class="tenencias_contenedor">
+
+            </div>
         </div>
-        <div class="cuerpo" id="cuerpo_faq">
+        <div class="cuerpo" id="cuerpo_tenencias">
 
         </div>
     </main>
     <footer class="pie">
     </footer>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2/dist/sweetalert2.min.js"></script>
+    <script src="../scripts/tenencias.js" type="module"></script>
     <script src="../scripts/session.js" type="module"></script>
     <script src="../scripts/index.js" type="module"></script>
 </body>

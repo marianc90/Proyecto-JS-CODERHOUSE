@@ -2,17 +2,24 @@ const sesionBoton = document.getElementById('sesion-boton');
 const sesionIniciar = document.getElementById('sesion-iniciar');
 const sesionCerrar = document.getElementById('sesion-cerrar');
 const sesionRegistro = document.getElementById('sesion-registro');
+const tenenciasIndicador = document.getElementById('tenencias-indicador');
 
 let cuentas = (JSON.parse(localStorage.getItem('cuentas'))) || [] ;
 let sesion = (JSON.parse(sessionStorage.getItem('sesion'))) || null ;
 let usuarioNombre = sesion?.usuario ?? 'Invitado';
 
 let sesionStatus = document.getElementById('sesion-status');
-sesionStatus.innerHTML = `- ( ${usuarioNombre} ) - $${sesion?.pesos ?? '0'} - U$${sesion?.dolares ?? '0'}`;
+sesionStatus.innerHTML = `- <strong>  ${usuarioNombre}  </strong> - $${sesion?.pesos ?? '0'} - U$${sesion?.dolares ?? '0'}`;
 
 sesion && sesionIniciar.classList.add('none');
 sesion && sesionCerrar.classList.remove('none');
 sesion && sesionRegistro.classList.add('none');
+
+//IMPRIME TENENCIAS SUSCRIPTAS EN EL NAV
+let numeroTenencias = document.createElement('strong');
+numeroTenencias.innerHTML = ` (${sesion?.suscripciones.length ?? ''})`;
+numeroTenencias.className = sesion?.suscripciones.length > 0 ? 'visible' : 'none' ; 
+tenenciasIndicador.append(numeroTenencias);
 
 sesionRegistro.addEventListener('click', async () => {
     let { value: usuario } = await Swal.fire({
@@ -69,7 +76,6 @@ sesionIniciar.addEventListener('click', async () => {
         sesionCerrar.classList.remove('none');
         sesionRegistro.classList.add('none');
         usuarioNombre = sesion?.usuario ?? 'Invitado';
-        sesionStatus.innerHTML = `- ( ${usuarioNombre} ) -`;
         Swal.fire({
             icon: 'success',
             title: `Hola ${usuarioNombre}!`,
@@ -102,7 +108,6 @@ sesionCerrar.addEventListener('click', async () => {
             sesionCerrar.classList.add('none');
             sesionRegistro.classList.remove('none');
             usuarioNombre = 'Invitado';
-            sesionStatus.innerHTML = `- ( ${usuarioNombre} ) -`;
             sesion = null;
             sessionStorage.clear();
             await Swal.fire(
