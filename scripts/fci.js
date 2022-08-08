@@ -1,6 +1,11 @@
-import { listaFondos } from "../scripts/index.js";
+import { importarFondos } from "../scripts/index.js";
 import { imprimirFondos } from "../scripts/imprimirfondos.js";
 
+let listaFondos;
+
+async function awaitFetch(){
+  listaFondos = await importarFondos();
+};
 //FILTROS Y BUSQUEDA------------------------------------------------------------------------------------------------------------
 function mostrarTodoFondos () {
     let resultadosParaMostrar = [];
@@ -140,3 +145,5 @@ botonFilterMoneda.addEventListener("click", () => buscarMoneda());
 
 let botonFilterPerfil = document.getElementById('btnFilterPerfil');
 botonFilterPerfil.addEventListener("click", () => filtrarPerfil());
+
+awaitFetch();

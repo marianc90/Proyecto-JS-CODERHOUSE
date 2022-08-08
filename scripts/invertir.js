@@ -1,10 +1,11 @@
-import { listaFondos } from "../scripts/index.js";
+import { importarFondos } from "../scripts/index.js";
 import { sesion } from "../scripts/session.js";
 import { actualizarLocalSession } from "../scripts/actualizarLocalSession.js";
 
+let listaFondos;
 let resultadosParaMostrar = [];
-resultadosParaMostrar = listaFondos.map(elemento => elemento);
-resultadosParaMostrar.sort((a,b) => a.id - b.id);
+let valueSelected;
+let value;
 
 let selectFCI = document.getElementById("select_fci");
 let cuerpoPendientes = document.getElementById('pendientes_fci');
@@ -102,10 +103,10 @@ function listaPendientesSuscripcion(){
                actualizarLocalSession();
                 await Swal.fire(
                     `Ha suscripto los fondos seleccionados`,
-                    `Puede visualizarlos en la sección Tenencias. <br>Los fondos se han debitado de su cuenta`,
+                    `Será redirigido a la sección Tenencias, donde podrá visualizarlos. <br><br>Los fondos se han debitado de su cuenta`,
                     'success'
                   );
-               location.reload();
+                window.location.replace("../pages/tenencias.html");
             }
           });
         });
@@ -189,19 +190,26 @@ function suscribirFondo(value){
         }
         });
 };
+async function awaitFetch(){
+    listaFondos = await importarFondos();
 
+    resultadosParaMostrar = listaFondos.map(elemento => elemento);
+    resultadosParaMostrar.sort((a,b) => a.id - b.id);
 
-imprimirOptionsSelect(resultadosParaMostrar, selectFCI);// SE IMPRIMEN LOS FCI EN LA LISTA SELECT
+    imprimirOptionsSelect(resultadosParaMostrar, selectFCI);// SE IMPRIMEN LOS FCI EN LA LISTA SELECT
+    sesion?.pendientes && listaPendientesSuscripcion(); // SI ESTA LA SESION INICIADA SE MUESTRA LA LISTA DE PENDIENTES DE SUSCRIPCION
+    
+    valueSelected = parseInt(sessionStorage.getItem('valueSelected')) ?? 1;//IMPRESION DE DETALLES DE FORMA PREDETERMINADA AL CARGAR LA PAGINA O CON LOS VALORES IMPORTADOS DESDE FCI.HTML MEDIANTES SESSIONSTORAGE
+    selectFCI.selectedIndex = valueSelected - 1;// SE RESTA 1 YA QUE SE PASA EL ID PERO LA LISTA SELECT EMPIEZA DESDE 0
+    // SE CREA LA VARIABLE value, YA QUE ES LA QUE SE UTILIZA EN LAS FUNCIONES PARA IMPRIMIR RESULTADOS Y SUSCRIBIR, Y SE LE ASIGNA EL VALOR DE SELECTFCI.SELECTEDINDEX< EL CUAL SE IGUALA CON LA VARIABLE VALUESELECTED IMPORTADA DESDE SESSION STORAGE Y CREADA EN IMPRIMIRFONDOS.JS o SE IGUALA A 0 EN CASO DE UNDEFINED.
+    value = selectFCI.selectedIndex + 1;// SE SUMA 1 YA QUE LA LISTA SELECT EMPIEZA DESDE 0
+    imprimirDetallesFCI(value)
+    suscribirFondo(value)
+    //sessionStorage.setItem('valueSelected', 1) // SE VUELVE A PONER EL VALUESELECT A 1 PARA QUE NO QUEDE SELECCIONADA LA OPCION ELEGIDA EN FCI.HTML O TESTINVERSOR.HTTML
+}
 
-sesion?.pendientes && listaPendientesSuscripcion(); // SI ESTA LA SESION INICIADA SE MUESTRA LA LISTA DE PENDIENTES DE SUSCRIPCION
+awaitFetch();
 
-let valueSelected = parseInt(sessionStorage.getItem('valueSelected')) ?? 1;//IMPRESION DE DETALLES DE FORMA PREDETERMINADA AL CARGAR LA PAGINA O CON LOS VALORES IMPORTADOS DESDE FCI.HTML MEDIANTES SESSIONSTORAGE
-selectFCI.selectedIndex = valueSelected - 1;// SE RESTA 1 YA QUE SE PASA EL ID PERO LA LISTA SELECT EMPIEZA DESDE 0
-// SE CREA LA VARIABLE value, YA QUE ES LA QUE SE UTILIZA EN LAS FUNCIONES PARA IMPRIMIR RESULTADOS Y SUSCRIBIR, Y SE LE ASIGNA EL VALOR DE SELECTFCI.SELECTEDINDEX< EL CUAL SE IGUALA CON LA VARIABLE VALUESELECTED IMPORTADA DESDE SESSION STORAGE Y CREADA EN IMPRIMIRFONDOS.JS o SE IGUALA A 0 EN CASO DE UNDEFINED.
-let value = selectFCI.selectedIndex + 1;// SE SUMA 1 YA QUE LA LISTA SELECT EMPIEZA DESDE 0
-imprimirDetallesFCI(value)
-suscribirFondo(value)
-//sessionStorage.setItem('valueSelected', 1) // SE VUELVE A PONER EL VALUESELECT A 1 PARA QUE NO QUEDE SELECCIONADA LA OPCION ELEGIDA EN FCI.HTML O TESTINVERSOR.HTTML
 //CREACION DE EVENTO AL CLICKEAR EN ELEMENTO DE LISTA
 selectFCI.addEventListener('change', (e) => {
     let value = e.target.value;

@@ -1,0 +1,208 @@
+[
+    {
+        "nombre":"ADCAP PESOS PLUS Clase A",
+        "plazo":"corto",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "tipoRenta":"Renta Fija",
+        "valorCuotaparte":10.4625,
+        "rentabilidad":{
+            "ultimoAño":46,
+            "ultimoMes":3},
+        "perfil":"Conservador",
+        "id":1
+    },
+    {
+        "nombre":"FIMA PREMIUM Clase A",
+        "plazo":"corto",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"Inmediato",
+        "tipoRenta":"Renta Fija",
+        "valorCuotaparte":12.1322,
+        "rentabilidad":{
+            "ultimoAño":35.73,
+            "ultimoMes":3.19},
+        "perfil":"Conservador",
+        "id":2
+    },
+    {
+        "nombre":"GALILEO AHORRO Clase A",
+        "plazo":"corto",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"24hs",
+        "tipoRenta":"Renta Fija",
+        "valorCuotaparte":24.4339,
+        "rentabilidad":{
+            "ultimoAño":47.9,
+            "ultimoMes":4.42},
+        "perfil":"Conservador",
+        "id":3
+    },
+    {
+        "nombre":"TORONTO TRUST AHORRO Clase A",
+        "plazo":"corto",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"Inmediato",
+        "tipoRenta":"Money Market",
+        "valorCuotaparte":7.3082,
+        "rentabilidad":{
+            "ultimoAño":37.23,
+            "ultimoMes":3.29},
+        "perfil":"Conservador",
+        "id":4
+        },
+    {
+        "nombre":"TORONTO TRUST LIQUIDEZ DÓLAR Clase A - Divisa",
+        "plazo":"corto",
+        "inversionMinima":1000,
+        "moneda":"dolares",
+        "rescate":"48hs",
+        "tipoRenta":"Renta Fija",
+        "valorCuotaparte":1.0731,
+        "rentabilidad":{
+            "ultimoAño":-0.24,
+            "ultimoMes":-0.05},
+        "perfil":"Conservador",
+        "id":5
+        },
+    {
+        "nombre":"ADCAP BALANCEADO II Clase A",
+        "plazo":"corto",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "tipoRenta":"Renta Fija",
+        "valorCuotaparte":2.081,
+        "rentabilidad":{
+            "ultimoAño":49.04,
+            "ultimoMes":-0.86},
+        "perfil":"Moderado",
+        "id":6
+        },
+    {
+        "nombre":"ADCAP RENTA FIJA ARGENTINA Clase A",
+        "plazo":"corto",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "tipoRenta":"Dolar Linked",
+        "valorCuotaparte":3.4528,
+        "rentabilidad":{
+            "ultimoAño":32.4,
+            "ultimoMes":2.67},
+        "perfil":"Moderado",
+        "id":7
+        },
+    {
+        "nombre":"ADCAP RETORNO TOTAL Clase A",
+        "plazo":"corto",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"24hs",
+        "tipoRenta":"Renta Fija",
+        "valorCuotaparte":24.4339,
+        "rentabilidad":{
+            "ultimoAño":47.9,
+            "ultimoMes":4.42},
+        "perfil":"Moderado",
+        "id":8
+        },
+    {
+        "nombre":"ALLARIA COBERTURA DINÁMICA Clase A",
+        "plazo":"mediano",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "tipoRenta":"Renta Fija",
+        "valorCuotaparte":1.3935,
+        "rentabilidad":{
+            "ultimoAño":39.35,
+            "ultimoMes":1.3935},
+        "perfil":"Moderado",
+        "id":9
+        },
+    {
+        "nombre":"ARGENFUNDS ABIERTO PYMES Clase B",
+        "plazo":"mediano",
+        "inversionMinima":10000,"moneda":"pesos","rescate":"48hs","tipoRenta":"Renta Fija",
+        "valorCuotaparte":3.2272,
+        "rentabilidad":{
+            "ultimoAño":36.64,
+            "ultimoMes":2.14},
+        "perfil":"Moderado",
+        "id":10
+        },
+    {
+        "nombre":"ADCAP BALANCEADO Clase A",
+        "plazo":"largo",
+        "inversionMinima":500,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "tipoRenta":"Retorno Total",
+        "valorCuotaparte":6.4304,
+        "rentabilidad":{
+            "ultimoAño":39.52,
+            "ultimoMes":2.06},
+        "perfil":"Agresivo",
+        "id":11
+        },
+    {
+        "nombre":"ALLARIA ACCIONES Clase A",
+        "plazo":"largo",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "tipoRenta":"Renta Variable",
+        "valorCuotaparte":33.7802,
+        "rentabilidad":{
+            "ultimoAño":53.68,
+            "ultimoMes":13.41},
+        "perfil":"Agresivo",
+        "id":12
+        },
+    {
+        "nombre":"TORONTO TRUST ARGENTINA 2021 Clase A",
+        "plazo":"largo",
+        "inversionMinima":1000,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "tipoRenta":"Renta Mixta",
+        "valorCuotaparte":24.4339,
+        "rentabilidad":{
+            "ultimoAño":1.85,
+            "ultimoMes":2.03},
+        "perfil":"Agresivo",
+        "id":13
+        },
+    {
+        "nombre":"BALANZ ACCIONES Clase B",
+        "plazo":"largo",
+        "inversionMinima":20000,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "tipoRenta":"Renta Variable",
+        "valorCuotaparte":5.64,"rentabilidad":{
+            "ultimoAño":13.56,
+            "ultimoMes":57.13},
+        "perfil":"Agresivo",
+        "id":14
+        },
+    {
+        "nombre":"CMA ACCIONES Clase A",
+        "plazo":"largo",
+        "inversionMinima":2000,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "tipoRenta":"Renta Variable",
+        "valorCuotaparte":3.2251,
+        "rentabilidad":{
+            "ultimoAño":51.21,
+            "ultimoMes":10.94},
+        "perfil":"Agresivo",
+        "id":15
+        }
+]

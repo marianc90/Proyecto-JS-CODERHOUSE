@@ -1,51 +1,11 @@
-import { listaFondos } from "../scripts/index.js";
+import { importarFondos } from "../scripts/index.js";
 import { sesion } from "../scripts/session.js"; 
 import { imprimirFondos } from "../scripts/imprimirfondos.js";
 
-
 // Declaración de lista de preguntas que luego se renderizaran en el formulario
-const listaPreguntas = [
-    {numero: 0,
-    cantidad: 4,
-    pregunta: "1 - Mi conocimiento sobre Mercado de Capitales es:",
-    respuestas: ["1) Nulo", "2) Poco", "3) Mucho","4) Profesional"]},
-    {numero: 1,
-    cantidad: 4,
-    pregunta: "2 - He invertido en el Mercado de Capitales:",
-    respuestas: ["1) Nunca", "2) Pocas veces y no me gustó", "3) Mucho y ya conozco los riesgos", "4) Siempre, lo hago habitualmente"]},
-    {numero: 2,
-    cantidad: 4,
-    pregunta: "3 - En caso de una baja en el valor de mis activos:",
-    respuestas: ["1) Rescataría todo asumiendo la pérdida", "2) Rescataría una parte", "3) Conservaría mis activos esperando a que suban, pese a que puedan bajar más", "4) Aprovecharía la oportunidad y agregaría más capital"]},
-    {numero: 3,
-    cantidad: 4,
-    pregunta: "4 - El porcentaje de mis ingresos mensuales que destino a pago de deudas de préstamos, tarjetas de crédito, y demás, es:",
-    respuestas: ["1) Más del 50%", "2) Entre un 26% y 50%", "3) Entre el 11% y 25%", "4) Menos del 10%"]},
-    {numero: 4,
-    cantidad: 3,
-    pregunta: "5 - Mi objetivo final es:",
-    respuestas: ["1) Mantener el valor de mi dinero con una rentabilidad mínima", " 2) Tener una ganancia superior a la de un Plazo Fijo, aunque se encuentre sujeta a variaciones del mercado", "3) Obtener una ganancia significativa, corriendo el riesgo de perder más de la mitad de la inversión inicial"]},
-    {numero: 5,
-    cantidad: 4,
-    pregunta: "6 - Tengo a mi cargo:",
-    respuestas: ["1) Mas de 3 personas", "2) 2 a 3 personas", "3) 1 persona", "4) Ninguna persona"]},
-    {numero: 6,
-    cantidad: 4,
-    pregunta: "7 - La cantidad de mis ahorros que estoy dispuesto a invertir en el Mercado de Capitales es:",
-    respuestas: ["1) Menor al 25%", "2) Entre el 26% y 50%", "3) Entre el 51% y 75%", "4) Más del 76%"]},
-    {numero: 7,
-    cantidad: 4,
-    pregunta: "8 - Necesitaré el dinero que invierto en:",
-    respuestas: ["1) Menos de 2 meses", "2) En medio año", "3) En un año", "4) En más de un año"]},
-    {numero: 8,
-    cantidad: 5,
-    pregunta: "9 - Del total de mi dinero estoy dispuesto a asumir una pérdida de:",
-    respuestas: ["1)Ninguna pérdida", "2) Hasta un 10%", "3) Hasta un 25%", "4) Hasta un 50%", "5) Más del 50%"]},
-    {numero: 9,
-    cantidad: 3,
-    pregunta: "10 - Me gustaría invertir:",
-    respuestas: ["1) El total de mis Activos en Renta Fija a corto plazo (Bonos, Fonodos Comunes de Inversión, Fideiomisos Financieros)", "2) La mitad de mis Activos en Renta Fija y el resto en ACCIONES, y demás Activos de Renta Variable", "3) El total de mis Activos en Renta Variable"]},
-    ];
+const listaPreguntas = [];
+
+let listaFondos;
 
 //TEST INVERSOR BOTON
 let botonTest = document.getElementById('btnTest');
@@ -54,6 +14,26 @@ let botonTest = document.getElementById('btnTest');
 let formularioContenedor = document.getElementById('form_test');
 let opcionSuma = []; //Acumulador de valores elegidos para el TEST
 
+async function importarPreguntas (){
+    const response = await fetch("../scripts/listaPreguntas.json");
+    const data = await response.json();
+
+    for (let pregunta of data){
+        listaPreguntas.push(pregunta);
+    }
+
+    return listaPreguntas;
+}
+
+async function awaitFetch(){
+    listaFondos = await importarFondos();
+
+    // SI EL USUARIO ESTA REGISTRADO Y COMPLETO EL TEST, SE IMPRIMIRAN LOS RESULTADOS AUTOMATICAMENTE
+    if (sesion != null && sesion.perfil != "") {
+        opcionesResultadoFinal(sesion.perfil);
+        botonTest.remove();
+    };
+};
 // Se requerirá al usuario seleccionar entre una serie de opciones para definir su perfil inversor y cuales son los FCI que se adecúan al mismo
 /* A la siguiente funcion se la llama mediante un FOR, e irá recorriendo el array listaPreguntas e imprimiendolos en el contenedor formularioContenedor. En base a las propiedades de cada objeto- El valor de cada respuesta lo irá agregando a la lista opcionSuma[].*/
 function imprimirOpciones(nroPregunta){
@@ -153,8 +133,6 @@ function testInversor(){
     formularioContenedor.appendChild(botonCalcular);
     formularioContenedor.addEventListener('submit', calcularValoresIngresados);
 };
-// SI EL USUARIO ESTA REGISTRADO Y COMPLETO EL TEST, SE IMPRIMIRAN LOS RESULTADOS AUTOMATICAMENTE
-if (sesion != null && sesion.perfil != "") {
-    opcionesResultadoFinal(sesion.perfil);
-    botonTest.remove();
-};
+
+importarPreguntas();
+awaitFetch();
