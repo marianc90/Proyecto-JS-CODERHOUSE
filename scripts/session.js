@@ -33,7 +33,13 @@ sesionRegistro.addEventListener('click', async () => {
         inputPlaceholder: 'Ingrese contraseña nueva aquí'
       });  
     if (usuario && contrasena) {
-        cuentas.push({'usuario': usuario, 'contrasena': contrasena, 'perfil': '', 'pesos': 0, 'dolares': 0, 'suscripciones': [], 'pendientes': []});
+        cuentas.push({'usuario': usuario, 
+                      'contrasena': contrasena, 
+                      'perfil': '', 
+                      'pesos': 0, 
+                      'dolares': 0, 
+                      'suscripciones': [], 
+                      'pendientes': []});
         localStorage.setItem('cuentas', JSON.stringify(cuentas));
         Swal.fire(
             `Genial ${usuario}!`,

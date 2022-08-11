@@ -11,6 +11,10 @@ let selectFCI = document.getElementById("select_fci");
 let cuerpoPendientes = document.getElementById('pendientes_fci');
 let detalle = document.getElementById('detalle_fci');//llamamos al contenedor de detalle
 
+document.addEventListener('DOMContentLoaded', e => {
+    awaitFetch();
+})
+
 //FUNCION PARA IMPRIMIR LISTA DE OPTIONS EN SELECT
 function imprimirOptionsSelect(resultadosParaMostrar, selectFCI){
     for (const recorrerArray in resultadosParaMostrar) {
@@ -207,8 +211,6 @@ async function awaitFetch(){
     suscribirFondo(value)
     //sessionStorage.setItem('valueSelected', 1) // SE VUELVE A PONER EL VALUESELECT A 1 PARA QUE NO QUEDE SELECCIONADA LA OPCION ELEGIDA EN FCI.HTML O TESTINVERSOR.HTTML
 }
-
-awaitFetch();
 
 //CREACION DE EVENTO AL CLICKEAR EN ELEMENTO DE LISTA
 selectFCI.addEventListener('change', (e) => {

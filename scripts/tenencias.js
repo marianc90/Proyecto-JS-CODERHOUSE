@@ -12,6 +12,10 @@ let cantidadSuscripcionesDolares = 0;
 let totalPesos = 0;
 let totalDolares = 0;
 
+document.addEventListener('DOMContentLoaded', e => {
+    awaitFetch();
+})
+
 async function awaitFetch(){
     let listaFondos = await importarFondos();
 
@@ -72,5 +76,3 @@ async function awaitFetch(){
         
 
 }
-
-awaitFetch();

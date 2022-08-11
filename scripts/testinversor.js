@@ -14,6 +14,12 @@ let botonTest = document.getElementById('btnTest');
 let formularioContenedor = document.getElementById('form_test');
 let opcionSuma = []; //Acumulador de valores elegidos para el TEST
 
+document.addEventListener('DOMContentLoaded', e => {
+    importarPreguntas();
+    awaitFetch();
+
+})
+
 async function importarPreguntas (){
     const response = await fetch("../scripts/listaPreguntas.json");
     const data = await response.json();
@@ -133,6 +139,3 @@ function testInversor(){
     formularioContenedor.appendChild(botonCalcular);
     formularioContenedor.addEventListener('submit', calcularValoresIngresados);
 };
-
-importarPreguntas();
-awaitFetch();

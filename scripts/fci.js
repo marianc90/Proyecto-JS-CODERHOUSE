@@ -3,6 +3,10 @@ import { imprimirFondos } from "../scripts/imprimirfondos.js";
 
 let listaFondos;
 
+document.addEventListener('DOMContentLoaded', e => {
+  awaitFetch();
+})
+
 async function awaitFetch(){
   listaFondos = await importarFondos();
 };
@@ -146,4 +150,3 @@ botonFilterMoneda.addEventListener("click", () => buscarMoneda());
 let botonFilterPerfil = document.getElementById('btnFilterPerfil');
 botonFilterPerfil.addEventListener("click", () => filtrarPerfil());
 
-awaitFetch();
