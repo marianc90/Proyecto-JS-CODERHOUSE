@@ -12,29 +12,38 @@
     <title>Invertir Fácil - Test del Inversor</title>
 </head>
 <body>
-    <header class="cabecera" id="cabecera">
+    <header class="cabecera">
         <a href="../index.html">
             <div class="cabecera__logo">        
                 <img class="cabecera__logo--img" src="../images/logo.png" alt="Logo header">
-                <h1>INVERTIR FACIL</h1>
             </div>
         </a>
-        <p> Fondos comunes de inversión según su perfil </p>
-        <nav class="cabecera__nav">
-            <ul>
-                <li><a href="../index.html">HOME</a></li>
-                <li><a href="../pages/fci.html">FCI</a></li>
-                <li><a href="../pages/invertir.html">INVIERTE AHORA</a></li>
-                <li><a href="../pages/fondear.html">FONDEAR</a></li>
-                <li><a href="../pages/test.html"><strong>TEST DEL INVERSOR</strong></a></li>
-                <li><a id="tenencias-indicador" href="../pages/tenencias.html">TENENCIAS</a></li>
-                <li id="sesion-status"></li>
-                <li id="sesion-boton">                    
+        <nav class="nav">
+            <a class="menubar__abrir" href="#menubar">
+                <img src="../images/menu.png" alt="">
+            </a>
+            <div class="cabecera__nav" id="menubar">
+                <ul>
+                    <li class="menubar__cerrar"><a href="#"> x </a></li>
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="../pages/fci.html">FCI</a></li>
+                    <li><a href="../pages/invertir.html">INVIERTE AHORA</a></li>
+                    <li><a href="../pages/fondear.html">FONDEAR</a></li>
+                    <li class="cabecera__nav__selected">TEST DEL INVERSOR</li>
+                    <li><a id="tenencias-indicador" href="../pages/tenencias.html">TENENCIAS</a></li>
+                </ul>
+            </div>
+        </nav>
+        <sesion>
+            <ul class="cabecera__sesion__cont">
+                <li id="sesion-boton">
                     <button id='sesion-iniciar' class='btnEstandar'>INICIAR SESION</button>
                     <button id='sesion-cerrar' class='btnEstandar none'>CERRAR SESION</button>
-                    <button id='sesion-registro' class='btnEstandar'>REGISTRARSE</button></li>
+                    <button id='sesion-registro' class='btnEstandar'>REGISTRARSE</button>
+                    <span id="sesion-status"></span>
+                </li>
             </ul>
-        </nav>
+        </sesion>
     </header>
     <main>
         <div class="banner__test" id="banner_test">
@@ -49,16 +58,46 @@
                 
             </div>
         </div>
-        <div class="cuerpo" id="cuerpo_test">
-            <form id="form_test">
-                
-            </form>
-        </div>
+        <section class="contenedor__test">
+            <div class="cuerpo__test" id="cuerpo_test">
+                <form id="form_test">
+                    
+                </form>
+            </div>
+        </section>   
         <div class="modal_fci_oculto" id="modal_fci">
 
         </div>
     </main>
     <footer class="pie">
+        <div class="pie__superior">
+            <a href="../index.html">
+                <div class="pie__logo">        
+                    <img class="pie__logo--img" src="../images/logo.png" alt="Logo pie">
+                </div>
+            </a>
+            <div class="pie__social">
+                <ul>
+                    <li><a href="https://www.facebook.com/"><img class='pie__social__links' src="../images/social/facebook.png" alt="facebook"> </a></li>
+                    <li><a href="https://twitter.com/"><img class='pie__social__links' src="../images/social/twitter.png" alt="twitter"> </a></li>
+                    <li><a href="https://www.instagram.com/"><img class='pie__social__links' src="../images/social/instagram.png" alt="instagram"> </a></li>
+                    <li><a href="https://www.linkedin.com/in/mariano-cuartero-393bbb38/"><img class='pie__social__links' src="../images/social/linkedin.png" alt="linkedin"> </a></li>
+                </ul>
+            </div>
+            <div class="pie__nav">
+                <ul>
+                    <li><a href="../index.html">HOME</a></li>
+                    <li><a href="./fci.html">FCI</a></li>
+                    <li><a href="./invertir.html">INVIERTE AHORA</a></li>
+                    <li><a href="./fondear.html">FONDEAR</a></li>
+                    <li class="pie__nav__selected">TEST DEL INVERSOR</li>
+                    <li><a href="./tenencias.html">TENENCIAS</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pie__inferior">
+            <p>Mariano Ariel Cuartero - Proyecto Final - CODER HOUSE</p>
+        </div>
     </footer>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2/dist/sweetalert2.min.js"></script>
     <script src="../scripts/session.js" type="module"></script>

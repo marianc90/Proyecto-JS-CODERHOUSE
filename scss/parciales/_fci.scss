@@ -6,13 +6,21 @@
     left: 25vw;
      height: 50vh;
      width: 50vw;
-     background-color: #385b7e;
-     color: rgb(255, 255, 255);
-     padding: 20px;
+
+     background-color: #183f6500;
+     backdrop-filter: blur(8px);
+     color: aliceblue;
+  
      -webkit-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
      -moz-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
      box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+     
+     -webkit-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+     -moz-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+     box-shadow: -1px -5px 11px -6px rgba(0,0,0,0.75);
+     
      border-radius: 15px;
+     padding: 20px;
      
      visibility: visible;
      opacity: 1;
@@ -57,6 +65,44 @@
 
 }
 
+.banner__fci{
+   padding-top: 120px;
+   background-image: url("../../images/back/fci.jpg");
+   background-attachment: fixed;
+   background-position: top;
+   background-repeat: no-repeat;
+   background-size: cover;
+   height: 96vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 20px;
+}
+
+.contenedor__fci{
+   background-image: url("../../images/back/fci.jpg");
+   background-attachment: fixed;
+   background-position: top;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+.cuerpo__fci{
+   background-color: #183f6500;
+   backdrop-filter: blur(8px);
+   color: aliceblue;
+
+   -webkit-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+   -moz-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+   box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+   
+   -webkit-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+   -moz-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+   box-shadow: -1px -5px 11px -6px rgba(0,0,0,0.75);
+   padding: 80px;
+
+}
 .lista_fci{
     transition: all 0.5s;
 }
@@ -65,6 +111,7 @@
     transform: translateX(2%);
 
 }
+
 
 .verde{
    background-color: green;

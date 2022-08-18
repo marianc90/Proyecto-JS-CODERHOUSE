@@ -4,3 +4,67 @@
     gap: 20px;
     margin: 20px;
 }
+
+.banner__fondear{
+    padding-top: 120px;
+    background-image: url("../../images/back/fondear.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+ }
+
+ .banner__fondear__titulo{
+    margin: 30px;
+    width: 30%;
+    font-weight: 300;
+    font-size: 40px;
+    color: aliceblue;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000000;
+  }
+ 
+ .contenedor__fondear{
+    background-image: url("../../images/back/fondear.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+ }
+ 
+ .cuerpo__fondear{
+    background-color: #183f6500;
+    backdrop-filter: blur(8px);
+    color: aliceblue;
+ 
+    -webkit-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+    box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+    
+    -webkit-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+    box-shadow: -1px -5px 11px -6px rgba(0,0,0,0.75);
+    padding: 80px;
+ 
+ }
+
+ .saldo_pesos{
+    border-style: solid;
+    border-radius: 10px;
+    padding: 5px;
+    border-color: rgba(249, 249, 241, 0.771);
+    font-size: 23px;
+ }
+ .saldo_dolares{
+    border-style: solid;
+    border-radius: 10px;
+    padding: 5px;
+    border-color: rgba(249, 249, 241, 0.771);
+    font-size: 23px;
+ }

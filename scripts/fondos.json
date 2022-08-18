@@ -5,6 +5,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Renta Fija",
         "valorCuotaparte":10.4625,
         "rentabilidad":{
@@ -19,6 +20,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"Inmediato",
+        "rescateMiliseg":0,
         "tipoRenta":"Renta Fija",
         "valorCuotaparte":12.1322,
         "rentabilidad":{
@@ -33,6 +35,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"24hs",
+        "rescateMiliseg":86400000,
         "tipoRenta":"Renta Fija",
         "valorCuotaparte":24.4339,
         "rentabilidad":{
@@ -47,6 +50,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"Inmediato",
+        "rescateMiliseg":0,
         "tipoRenta":"Money Market",
         "valorCuotaparte":7.3082,
         "rentabilidad":{
@@ -61,6 +65,7 @@
         "inversionMinima":1000,
         "moneda":"dolares",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Renta Fija",
         "valorCuotaparte":1.0731,
         "rentabilidad":{
@@ -75,6 +80,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Renta Fija",
         "valorCuotaparte":2.081,
         "rentabilidad":{
@@ -89,6 +95,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Dolar Linked",
         "valorCuotaparte":3.4528,
         "rentabilidad":{
@@ -103,6 +110,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"24hs",
+        "rescateMiliseg":86400000,
         "tipoRenta":"Renta Fija",
         "valorCuotaparte":24.4339,
         "rentabilidad":{
@@ -117,6 +125,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Renta Fija",
         "valorCuotaparte":1.3935,
         "rentabilidad":{
@@ -128,7 +137,11 @@
     {
         "nombre":"ARGENFUNDS ABIERTO PYMES Clase B",
         "plazo":"mediano",
-        "inversionMinima":10000,"moneda":"pesos","rescate":"48hs","tipoRenta":"Renta Fija",
+        "inversionMinima":10000,
+        "moneda":"pesos",
+        "rescate":"48hs",
+        "rescateMiliseg":172800000,
+        "tipoRenta":"Renta Fija",
         "valorCuotaparte":3.2272,
         "rentabilidad":{
             "ultimoAño":36.64,
@@ -142,6 +155,7 @@
         "inversionMinima":500,
         "moneda":"pesos",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Retorno Total",
         "valorCuotaparte":6.4304,
         "rentabilidad":{
@@ -156,6 +170,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Renta Variable",
         "valorCuotaparte":33.7802,
         "rentabilidad":{
@@ -170,6 +185,7 @@
         "inversionMinima":1000,
         "moneda":"pesos",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Renta Mixta",
         "valorCuotaparte":24.4339,
         "rentabilidad":{
@@ -184,6 +200,7 @@
         "inversionMinima":20000,
         "moneda":"pesos",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Renta Variable",
         "valorCuotaparte":5.64,"rentabilidad":{
             "ultimoAño":13.56,
@@ -197,6 +214,7 @@
         "inversionMinima":2000,
         "moneda":"pesos",
         "rescate":"48hs",
+        "rescateMiliseg":172800000,
         "tipoRenta":"Renta Variable",
         "valorCuotaparte":3.2251,
         "rentabilidad":{

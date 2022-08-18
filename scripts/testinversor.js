@@ -47,7 +47,7 @@ function imprimirOpciones(nroPregunta){
     pregunta.innerHTML += `<br><h2 id='pregunta${nroPregunta}'>${listaPreguntas[nroPregunta].pregunta}</h2><br>`;
     let i = 1;
     for (const respuesta in listaPreguntas[nroPregunta].respuestas) {
-        pregunta.innerHTML += `<input type="radio" name="respuesta${nroPregunta}" id="respuesta${nroPregunta}_opcion${i}" value="${i}" required> ${listaPreguntas[nroPregunta].respuestas[respuesta]}<br>`;
+        pregunta.innerHTML += `<input type="radio" name="respuesta${nroPregunta}" id="respuesta${nroPregunta}_opcion${i}" value="${i}" required> <label for="respuesta${nroPregunta}_opcion${i}">${listaPreguntas[nroPregunta].respuestas[respuesta]}</label><br>`;
         i++;
     }
     formularioContenedor.appendChild(pregunta);
@@ -99,7 +99,7 @@ function opcionesResultadoFinal(perfilCalculado){
     let resultadosParaMostrar = listaFondos.filter(elemento => elemento.perfil == perfilCalculado); //FILTRAMOS POR PERFIL y GUARDAMOS EN ARRAY
     
     let cuerpoFCI = document.getElementById("contenedorTest");
-    cuerpoFCI.innerHTML = `<h1>${sesion.usuario},</h1><br>Tu Perfil es <h2>${perfilCalculado}</h2> <br><br>
+    cuerpoFCI.innerHTML = `<h1>${sesion.usuario}</h1><br><h2>Perfil ${perfilCalculado}</h2> <br><br>
                                 Se muestran las ${resultadosParaMostrar.length} opciones que más se adecúan al mismo.<br><br>`;
     cuerpoFCI.className = "resultados";
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);

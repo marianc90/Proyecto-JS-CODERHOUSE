@@ -1,13 +1,6 @@
-form {
-    color: white;
-}
-
-.form_invertir{
-    width: 70%;
-}
-.banner__invertir{
+.banner__tenencias{
     padding-top: 120px;
-    background-image: url("../../images/back/invertir.jpg");
+    background-image: url("../../images/back/tenencias.jpg");
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
@@ -20,7 +13,7 @@ form {
     gap: 20px;
  }
 
- .banner__invertir__titulo{
+ .banner__tenencias__titulo{
     margin: 30px;
     width: 30%;
     font-weight: 300;
@@ -29,15 +22,15 @@ form {
     text-align: center;
   }
  
- .contenedor__invertir{
-    background-image: url("../../images/back/invertir.jpg");
+ .contenedor__tenencias{
+    background-image: url("../../images/back/tenencias.jpg");
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
  }
  
- .cuerpo__invertir{
+ .cuerpo__tenencias{
     background-color: #183f6500;
     backdrop-filter: blur(8px);
     color: aliceblue;
@@ -52,24 +45,3 @@ form {
     padding: 80px;
  
  }
-
-.fondos__lista {
-    color: aliceblue;
-    border-color: aliceblue;
-    border-radius: 12px;
-    background-color: #4b4d4e;
-    padding: 10px;
-    transition: transform 1s;
-/*     animation:  heartbeat 3s ease-in-out infinite both; */
-    &:hover{
-        cursor: pointer;
-    }
-} 
-
-.detalle_fci_suscribir{
-    cursor: pointer;
-}
-
-.eliminar_lista_fci{
-    cursor: pointer;
-}

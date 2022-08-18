@@ -25,6 +25,7 @@ function imprimirOptionsSelect(resultadosParaMostrar, selectFCI){
     }
     resultadosParaMostrar.unshift(''); // le agregamos un valor vacio al array para que coincida el numero de id con el numero de indice. 
 }
+//FUNCION PARA IMPRIMIR EL CARRITO DE SUSCRIPCIONES PENDIENTES Y EL EVENTO CONFIRMAR SUSCRIPCION
 function listaPendientesSuscripcion(){
     let cantidadPendientesPesos = 0;
     let cantidadPendientesDolares = 0;
@@ -32,94 +33,100 @@ function listaPendientesSuscripcion(){
     let totalDolares = 0;
     //PARA ELIMINAR DE PENDIENTES DE SUSCRIBIR
     if (sesion?.pendientes.length > 0) {
-    cuerpoPendientes.innerHTML +=`<br><strong>PENDIENTES DE SUSCRIPCION</strong>`;
-    
-    sesion.pendientes.forEach(element => {
-        let fondoEncontrado = resultadosParaMostrar.find(elemento => elemento.id == element.id) //SE TRAEN LOS DATOS SEGUN NUMERO DE ID
+        cuerpoPendientes.innerHTML +=`<br><h2>PENDIENTES DE SUSCRIPCION</h2><br><br>`;
         
-        let li= document.createElement('li');// creacion de boton eliminar (si no se crea li y se le da append, SOLO FUNCIONA EL ULTIMO DE LA LISTA)
-        li.innerHTML = `${fondoEncontrado.nombre}: - $${element.monto} ${fondoEncontrado.moneda} <button id='eliminar_${element.id}' class='eliminar_lista_fci'>x</button> `
-        cuerpoPendientes.append(li);//////////////////////////////////////////////////////////////////////////////////////////////////////
+        sesion.pendientes.forEach(element => { //IMPRESION DE PENDIENTES
+            let fondoEncontrado = resultadosParaMostrar.find(elemento => elemento.id == element.id) //SE TRAEN LOS DATOS SEGUN NUMERO DE ID
+            
+            let li= document.createElement('li');// creacion de boton eliminar (si no se crea li y se le da append, SOLO FUNCIONA EL ULTIMO DE LA LISTA)
+            li.innerHTML = `${fondoEncontrado.nombre}:  $${element.monto} ${fondoEncontrado.moneda} <button id='eliminar_${element.id}' class='eliminar_lista_fci'>Eliminar</button><br><br><hr /> <br>`
+            cuerpoPendientes.append(li);//////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        const botonEliminar = document.getElementById(`eliminar_${element.id}`);
-        botonEliminar.className = 'btnEstandar';
-        botonEliminar.addEventListener('click', (e) => {
+            const botonEliminar = document.getElementById(`eliminar_${element.id}`);
+            botonEliminar.className = 'btnEstandar';
+            botonEliminar.addEventListener('click', (e) => {
+                e.preventDefault();
+                Swal.fire({
+                    title: `¿Desea eliminar ${fondoEncontrado.nombre} de la lista de PENDIENTES?`,
+                    icon: 'warning',
+                    showCancelButton: true,
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, Eliminar'
+                }).then( async (result) => {
+                    if (result.isConfirmed) {
+                        sesion.pendientes.splice(sesion.pendientes.indexOf(element), 1);
+                        //MODIFICAMOS VARIABLE
+                        sesion[fondoEncontrado.moneda] += element.monto; 
+                        actualizarLocalSession();
+                        await Swal.fire(
+                            `Ha eliminado ${fondoEncontrado.nombre}`,
+                            `de la lista de PENDIENTES`,
+                            'success'
+                        );
+                        location.reload();
+                    }
+
+                });
+            });
+            fondoEncontrado.moneda == 'pesos' ? cantidadPendientesPesos ++ : cantidadPendientesDolares ++; 
+            fondoEncontrado.moneda == 'pesos' ? totalPesos += element.monto : totalDolares += element.monto; 
+
+        });
+
+        let div = document.createElement('div');
+        div.innerHTML = `<br><br>En Pesos: ${cantidadPendientesPesos} por $${totalPesos}<br>
+                        En Dolares: ${cantidadPendientesDolares} por U$${totalDolares}<br><br>`
+        cuerpoPendientes.append(div);
+        
+        let botonConfirmar = document.createElement('button');
+        botonConfirmar.innerHTML = 'CONFIRMAR SUSCRIPCION';
+        botonConfirmar.className = 'btnEstandar';
+        cuerpoPendientes.append(botonConfirmar);
+
+        botonConfirmar.addEventListener('click',(e)=> //ACCION DEL BOTON CONFIRMAR PENDIENTES DE SUSCRIPCION
+            {
             e.preventDefault();
             Swal.fire({
-                title: `¿Desea eliminar ${fondoEncontrado.nombre} de la lista de PENDIENTES?`,
+                title: `¿Suscribir la totalidad de los fondos pendientes?`,
                 icon: 'warning',
                 showCancelButton: true,
                 cancelButtonText: 'Cancelar',
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, Eliminar'
-              }).then( async (result) => {
+                confirmButtonText: 'Si, Suscribir'
+            }).then( async (result) => {
                 if (result.isConfirmed) {
-                    sesion.pendientes.splice(sesion.pendientes.indexOf(element), 1);
-                    //MODIFICAMOS VARIABLE
-                    sesion[fondoEncontrado.moneda] += element.monto; 
-                    actualizarLocalSession();
+                    let fechaSuscripcionEfectiva = Date.now();// DEFINIMOS FECHA DE SUSCRIPCION EFECTIVA
+                    sesion.pendientes.forEach(element => {
+                        if (sesion.suscripciones?.find(buscar => buscar.id == element.id)) {
+                            let indexIdSuscripto = sesion.suscripciones.indexOf(sesion.suscripciones.find(buscar => buscar.id == element.id))
+                            sesion.suscripciones[indexIdSuscripto].monto += element.monto;
+                            sesion.suscripciones[indexIdSuscripto].fecha = fechaSuscripcionEfectiva; //REEMPLAZAMOS FECHA DE ULTIMA SUSCRIPCION
+                        } else {
+                            element.fecha = fechaSuscripcionEfectiva; //ACTUALIZAMOS FECHA EFECTIVA DE SUSCRIPCION
+                            sesion.suscripciones.push(element);
+                        }
+                });
+                sesion.pendientes = [];
+                actualizarLocalSession();//llamamos a esta funcion que se encuentra en un modulo para actualizar valores del session y el local
                     await Swal.fire(
-                        `Ha eliminado ${fondoEncontrado.nombre}`,
-                        `de la lista de PENDIENTES`,
+                        `Ha suscripto los fondos seleccionados`,
+                        `Será redirigido a la sección Tenencias, donde podrá visualizarlos. <br><br>Los fondos se han debitado de su cuenta`,
                         'success'
-                      );
-                    location.reload();
+                    );
+                    window.location.replace("../pages/tenencias.html");
                 }
-
             });
-        });
-        fondoEncontrado.moneda == 'pesos' ? cantidadPendientesPesos ++ : cantidadPendientesDolares ++; 
-        fondoEncontrado.moneda == 'pesos' ? totalPesos += element.monto : totalDolares += element.monto; 
-
-    });
-
-    let div = document.createElement('div');
-    div.innerHTML = `<br><br>En Pesos: ${cantidadPendientesPesos} por $${totalPesos}<br>
-                    En Dolares: ${cantidadPendientesDolares} por U$${totalDolares}<br><br>`
-    cuerpoPendientes.append(div);
-    let botonConfirmar = document.createElement('button');
-    botonConfirmar.innerHTML = 'CONFIRMAR SUSCRIPCION';
-    botonConfirmar.className = 'btnEstandar';
-    cuerpoPendientes.append(botonConfirmar);
-    botonConfirmar.addEventListener('click',(e)=>
-        {
-           e.preventDefault();
-           Swal.fire({
-            title: `¿Suscribir la totalidad de los fondos pendientes?`,
-            icon: 'warning',
-            showCancelButton: true,
-            cancelButtonText: 'Cancelar',
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, Suscribir'
-          }).then( async (result) => {
-            if (result.isConfirmed) {
-                sesion.pendientes.forEach(element => {
-                    if (sesion.suscripciones?.find(buscar => buscar.id == element.id)) {
-                        let indexIdSuscripto = sesion.suscripciones.indexOf(sesion.suscripciones.find(buscar => buscar.id == element.id))
-                        sesion.suscripciones[indexIdSuscripto].monto += element.monto;
-                    } else {
-                        sesion.suscripciones.push(element);
-                    }
-               });
-               sesion.pendientes = [];
-               actualizarLocalSession();
-                await Swal.fire(
-                    `Ha suscripto los fondos seleccionados`,
-                    `Será redirigido a la sección Tenencias, donde podrá visualizarlos. <br><br>Los fondos se han debitado de su cuenta`,
-                    'success'
-                  );
-                window.location.replace("../pages/tenencias.html");
-            }
-          });
-        });
+            });
     };
 };
+//FUNCION PARA IMPRIMIR LOS DETALLES DE CADA FCI SELECCONADO Y SU CORRESPONDIENTE BOTON DE SUSCRIBIR
 function imprimirDetallesFCI(value){
 
     detalle.innerHTML = '';//lo limpieamos para que no se sobreescriba
-    detalle.innerHTML = `<div class='detalle_fci_titulo'><h1>${resultadosParaMostrar[value].nombre}</h1></div>
+    detalle.innerHTML = `<div class='detalle_fci_titulo'><h1>${resultadosParaMostrar[value].nombre}</h1></div><hr><br>
                         <div class='detalle_fci_contenido'> <p>Plazo de permanencia sugerido: <b>${(resultadosParaMostrar[value].plazo).toUpperCase()}</b></p>
                                                             <p>Monto minimo de inversion: <b>$${resultadosParaMostrar[value].inversionMinima} ${(resultadosParaMostrar[value].moneda).toUpperCase()}</b></p>
                                                             <p>Tiempo de rescate: <b>${resultadosParaMostrar[value].rescate}</b></p>
@@ -140,6 +147,7 @@ function imprimirDetallesFCI(value){
     resultadosParaMostrar[value].rentabilidad.ultimoAño > 0 ? rentaAnio.className = 'verde' : rentaAnio.className = 'rojo';
     resultadosParaMostrar[value].rentabilidad.ultimoMes > 0 ? rentaMes.className = 'verde' : rentaMes.className = 'rojo';
 }
+//FUNCION PARA AGREGAR FONDO AL CARRITO DE SUSCRIPCIONES PENDIENTES
 function suscribirFondo(value){
     //creacion del boton SUSCRIBIR
     let botonSuscribir = document.getElementById('detalle_fci_suscribir')
@@ -156,7 +164,7 @@ function suscribirFondo(value){
             );
         };
         let { value: monto } = await Swal.fire({
-            title: 'Ingrese monto a invertir',
+            title: `Ingrese monto a invertir \n <span style='font-size: 15px'>Tiempo para recuperar su dinero posteriormente: ${resultadosParaMostrar[value].rescate}<span>`,
             input: 'number',
             inputPlaceholder: 'Ingrese monto aquí',
             showCancelButton: true,
@@ -168,7 +176,8 @@ function suscribirFondo(value){
             if (monto <= sesion[resultadosParaMostrar[value].moneda]) {//Se analiza si es menor o igual al saldo disponible.
 
                 let idExistente = sesion.pendientes.find(elemento => elemento.id == resultadosParaMostrar[value].id);
-                idExistente ? idExistente.monto += monto : sesion.pendientes.push({'id': resultadosParaMostrar[value].id, 'monto': monto});
+                let fechaSuscripcion = Date.now(); //DEFINIMOS FECHA APROXIMADA DE SUSCRIPCION
+                idExistente ? idExistente.monto += monto : sesion.pendientes.push({'id': resultadosParaMostrar[value].id, 'monto': monto, 'fecha': fechaSuscripcion});
                 //MODIFICAMOS VARIABLE
                 sesion[resultadosParaMostrar[value].moneda] -= monto;
                 actualizarLocalSession();
@@ -194,6 +203,7 @@ function suscribirFondo(value){
         }
         });
 };
+//FUNCION PARA ESPERAR EL FETCH DE LISTA DE FONDOS
 async function awaitFetch(){
     listaFondos = await importarFondos();
 
@@ -210,6 +220,13 @@ async function awaitFetch(){
     imprimirDetallesFCI(value)
     suscribirFondo(value)
     //sessionStorage.setItem('valueSelected', 1) // SE VUELVE A PONER EL VALUESELECT A 1 PARA QUE NO QUEDE SELECCIONADA LA OPCION ELEGIDA EN FCI.HTML O TESTINVERSOR.HTTML
+    
+    //A CONTINUACION SE VERIFICA SI VIENE REDIRIGIDO DE OTRA PAGINA PARA, EN CASO DE QUE HAYA FONDOS PENDIENTES, SCROLLEAR HACIA ABAJO
+    let redirectedCheck = parseInt(sessionStorage.getItem('redirected')) || 0
+    if (redirectedCheck == 0 && sesion?.pendientes.length > 0) {
+        cuerpoPendientes.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    sessionStorage.setItem('redirected', '0');
 }
 
 //CREACION DE EVENTO AL CLICKEAR EN ELEMENTO DE LISTA

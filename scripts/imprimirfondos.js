@@ -27,7 +27,7 @@ export function imprimirFondos(resultadosParaMostrar, cuerpoFCI){
             
                             </div>
                             <div class="modal_fci_botones" id="modal_fci_botones">
-                            <div class="modal_fci_suscribir" id="modal_fci_suscribir">SUSCRIBIR </div>
+                            <div class="modal_fci_suscribir" id="modal_fci_suscribir">IR A SUSCRIBIR </div>
                             <div class="modal_fci_cerrar" id="modal_fci_cerrar">CERRAR </div>
                             </div>`
         // ASIGNACION DE COLOR SEGUN SI RENTABILIDAD ES POSITIVA O NEGATIVA
@@ -44,6 +44,7 @@ export function imprimirFondos(resultadosParaMostrar, cuerpoFCI){
         botonSuscribir.addEventListener('click', () =>{
             valueSelected = resultadosParaMostrar[recorrerArray].id;
             sessionStorage.setItem('valueSelected', valueSelected);
+            sessionStorage.setItem('redirected', '1');//PARA MARCAR QUE VA REDIRIGIDO
             window.location.replace("../pages/invertir.html");
 
         })

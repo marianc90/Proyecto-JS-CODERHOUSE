@@ -1,0 +1,95 @@
+.banner__index{
+    padding-top: 120px;
+    background-image: url("../../images/back/index.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 96vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  
+    &__titulo{
+      margin: 30px;
+      font-weight: 300;
+      font-size: 40px;
+      color: aliceblue;
+      text-align: center;
+    };
+  }
+  .flecha-abajo{
+    width: 90px;
+    cursor: pointer;
+    -webkit-animation: slide-top 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate both;
+    animation: slide-top 3s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate both;
+  }
+
+  .contenedor__index{
+    background-image: url("../../images/back/index.jpg");
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+  
+  .cuerpo__index{
+    background-color: #183f6500;
+    backdrop-filter: blur(8px);
+    color: aliceblue;
+
+    -webkit-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+    box-shadow: -1px 9px 11px -8px rgba(0,0,0,0.75);
+    
+    -webkit-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -5px 18px -6px rgba(0,0,0,0.75);
+    box-shadow: -1px -5px 11px -6px rgba(0,0,0,0.75);
+
+    min-height: 150px;
+    height: max-content;
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    &__enlaces{
+        width: 40%;
+        height: 180px;
+        background-color: black;
+        border-radius: 20px;
+        text-align: center;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        text-shadow: 1px 1px 1px #000000;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s;
+        &--fci{
+            background-image:url("../../images/back/fci.jpg");
+        }
+        &--invertir{
+            background-image:url("../../images/back/invertir.jpg");
+        }
+        &--fondear{
+            background-image:url("../../images/back/fondear.jpg");
+        }
+        &--test{
+            background-image:url("../../images/back/test.jpg");
+        }
+        &--tenencias{
+            width: 81%;
+            background-image:url("../../images/back/tenencias.jpg");
+            background-position: center;
+        }
+        &:hover{
+            transform: scale(98%);
+            filter: brightness(1.5);
+        }
+    }
+  }
+

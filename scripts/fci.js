@@ -19,7 +19,7 @@ function mostrarTodoFondos () {
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = (`<em>Se muestran ${resultadosParaMostrar.length} resultados en total por:</em><b> orden alfabético</b>.<br><br>`);
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 async function buscarMinimoInversion (){
     let { value: valor} = await Swal.fire({
@@ -39,7 +39,7 @@ async function buscarMinimoInversion (){
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados por debajo de:</em> <b>${valor} Pesos/Dolares de inversión mínima: </b><br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.scrollTo(0,500);
 }
 function filtrarMayorRentabilidadAnio () {
     let resultadosParaMostrar = [];
@@ -48,7 +48,7 @@ function filtrarMayorRentabilidadAnio () {
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados ordenados por: </em> <b>mayor nivel de rentabilidad</b>.<br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 async function filtrarMenorPlazo (){
     const inputOptions = new Promise((resolve) => {
@@ -75,7 +75,7 @@ async function filtrarMenorPlazo (){
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados para</em> <b>inversiones de ${valor} plazo.</b> <br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.scrollTo(0,500);
 
 }
 async function buscarMoneda (){
@@ -102,7 +102,8 @@ async function buscarMoneda (){
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados en</em> <b>${valor.toUpperCase()}</b>.<br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.scrollTo(0,500);
+    
 }
 async function filtrarPerfil (){
     const inputOptions = new Promise((resolve) => {
@@ -129,7 +130,34 @@ async function filtrarPerfil (){
     let cuerpoFCI = document.getElementById("cuerpo_fci");
     cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados de </em><b>Perfil ${valor.toUpperCase()}</b>.<br><br>`;
     imprimirFondos(resultadosParaMostrar, cuerpoFCI);
-    cuerpoFCI.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    window.scrollTo(0,500);
+}
+async function filtrarRescate (){
+    const inputOptions = new Promise((resolve) => {
+        setTimeout(() => {
+          resolve({
+            '48hs': '48hs',
+            '24hs': '24hs',
+            'Inmediato': 'Inmediato'
+          })
+        }, 500)
+      })
+      const { value: valor } = await Swal.fire({
+        title: 'Ingrese el tiempo de rescate deseado',
+        input: 'radio',
+        inputOptions: inputOptions,
+        inputValidator: (value) => {
+          if (!value) {
+            return 'Debes elegir un valor'
+          }
+        }
+      });
+    let resultadosParaMostrar = [];
+    resultadosParaMostrar = listaFondos.filter(elemento => elemento.rescate == valor);
+    let cuerpoFCI = document.getElementById("cuerpo_fci");
+    cuerpoFCI.innerHTML = `<em>Se muestran ${resultadosParaMostrar.length} resultados de </em><b>Tiempo de Rescate: ${valor.toUpperCase()}</b>.<br><br>`;
+    imprimirFondos(resultadosParaMostrar, cuerpoFCI);
+    window.scrollTo(0,500);
 }
 //BOTON FILTROS
 let botonFilterTodos = document.getElementById('btnFilterTodos');
@@ -150,3 +178,5 @@ botonFilterMoneda.addEventListener("click", () => buscarMoneda());
 let botonFilterPerfil = document.getElementById('btnFilterPerfil');
 botonFilterPerfil.addEventListener("click", () => filtrarPerfil());
 
+let botonFilterRescate = document.getElementById('btnFilterRescate');
+botonFilterRescate.addEventListener("click", () => filtrarRescate());
