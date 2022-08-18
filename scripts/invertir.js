@@ -191,7 +191,7 @@ function suscribirFondo(value){
                 } else {
                     Swal.fire(
                         `Fondos Insuficientes`,
-                        `No cuenta con saldo suficiente en su cuenta ${resultadosParaMostrar[value].moneda}.`,
+                        `No cuenta con saldo suficiente en su cuenta ${resultadosParaMostrar[value].moneda}. Diríjase a la sección 'Fondear' y cargue dinero.`,
                         'error'
                     );
                 }
