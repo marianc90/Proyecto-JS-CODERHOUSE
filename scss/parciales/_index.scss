@@ -1,6 +1,6 @@
 .banner__index{
     padding-top: 120px;
-    background-image: url("../../images/back/index.jpg");
+    background-image: url("../images/back/index.jpg");
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
@@ -28,7 +28,7 @@
   }
 
   .contenedor__index{
-    background-image: url("../../images/back/index.jpg");
+    background-image: url("../images/back/index.jpg");
     background-attachment: fixed;
     background-position: top;
     background-repeat: no-repeat;
@@ -70,20 +70,20 @@
         align-items: center;
         transition: all 0.5s;
         &--fci{
-            background-image:url("../../images/back/fci.jpg");
+            background-image:url("../images/back/fci.jpg");
         }
         &--invertir{
-            background-image:url("../../images/back/invertir.jpg");
+            background-image:url("../images/back/invertir.jpg");
         }
         &--fondear{
-            background-image:url("../../images/back/fondear.jpg");
+            background-image:url("../images/back/fondear.jpg");
         }
         &--test{
-            background-image:url("../../images/back/test.jpg");
+            background-image:url("../images/back/test.jpg");
         }
         &--tenencias{
             width: 81%;
-            background-image:url("../../images/back/tenencias.jpg");
+            background-image:url("../images/back/tenencias.jpg");
             background-position: center;
         }
         &:hover{

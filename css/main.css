@@ -194,7 +194,7 @@ div {
 
 .banner__index {
   padding-top: 120px;
-  background-image: url("../../images/back/index.jpg");
+  background-image: url("../images/back/index.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -222,7 +222,7 @@ div {
 }
 
 .contenedor__index {
-  background-image: url("../../images/back/index.jpg");
+  background-image: url("../images/back/index.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -263,20 +263,20 @@ div {
   transition: all 0.5s;
 }
 .cuerpo__index__enlaces--fci {
-  background-image: url("../../images/back/fci.jpg");
+  background-image: url("../images/back/fci.jpg");
 }
 .cuerpo__index__enlaces--invertir {
-  background-image: url("../../images/back/invertir.jpg");
+  background-image: url("../images/back/invertir.jpg");
 }
 .cuerpo__index__enlaces--fondear {
-  background-image: url("../../images/back/fondear.jpg");
+  background-image: url("../images/back/fondear.jpg");
 }
 .cuerpo__index__enlaces--test {
-  background-image: url("../../images/back/test.jpg");
+  background-image: url("../images/back/test.jpg");
 }
 .cuerpo__index__enlaces--tenencias {
   width: 81%;
-  background-image: url("../../images/back/tenencias.jpg");
+  background-image: url("../images/back/tenencias.jpg");
   background-position: center;
 }
 .cuerpo__index__enlaces:hover {
@@ -315,7 +315,7 @@ div {
 
 .banner__test {
   padding-top: 120px;
-  background-image: url("../../images/back/test.jpg");
+  background-image: url("../images/back/test.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -338,7 +338,7 @@ div {
 }
 
 .contenedor__test {
-  background-image: url("../../images/back/test.jpg");
+  background-image: url("../images/back/test.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -454,7 +454,7 @@ div {
 
 .banner__fci {
   padding-top: 120px;
-  background-image: url("../../images/back/fci.jpg");
+  background-image: url("../images/back/fci.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -468,7 +468,7 @@ div {
 }
 
 .contenedor__fci {
-  background-image: url("../../images/back/fci.jpg");
+  background-image: url("../images/back/fci.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -521,7 +521,7 @@ form {
 
 .banner__invertir {
   padding-top: 120px;
-  background-image: url("../../images/back/invertir.jpg");
+  background-image: url("../images/back/invertir.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -544,7 +544,7 @@ form {
 }
 
 .contenedor__invertir {
-  background-image: url("../../images/back/invertir.jpg");
+  background-image: url("../images/back/invertir.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -594,7 +594,7 @@ form {
 
 .banner__fondear {
   padding-top: 120px;
-  background-image: url("../../images/back/fondear.jpg");
+  background-image: url("../images/back/fondear.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -618,7 +618,7 @@ form {
 }
 
 .contenedor__fondear {
-  background-image: url("../../images/back/fondear.jpg");
+  background-image: url("../images/back/fondear.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -656,7 +656,7 @@ form {
 
 .banner__tenencias {
   padding-top: 120px;
-  background-image: url("../../images/back/tenencias.jpg");
+  background-image: url("../images/back/tenencias.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
@@ -679,7 +679,7 @@ form {
 }
 
 .contenedor__tenencias {
-  background-image: url("../../images/back/tenencias.jpg");
+  background-image: url("../images/back/tenencias.jpg");
   background-attachment: fixed;
   background-position: top;
   background-repeat: no-repeat;
