@@ -39,7 +39,7 @@ function listaPendientesSuscripcion(){
             let fondoEncontrado = resultadosParaMostrar.find(elemento => elemento.id == element.id) //SE TRAEN LOS DATOS SEGUN NUMERO DE ID
             
             let li= document.createElement('li');// creacion de boton eliminar (si no se crea li y se le da append, SOLO FUNCIONA EL ULTIMO DE LA LISTA)
-            li.innerHTML = `${fondoEncontrado.nombre}:  $${element.monto} ${fondoEncontrado.moneda} <button id='eliminar_${element.id}' class='eliminar_lista_fci'>Eliminar</button><br><br><hr /> <br>`
+            li.innerHTML = `<p>${fondoEncontrado.nombre}:  $${element.monto} ${fondoEncontrado.moneda}</p> <button id='eliminar_${element.id}' class='eliminar_lista_fci'>Eliminar</button><br><br>`
             cuerpoPendientes.append(li);//////////////////////////////////////////////////////////////////////////////////////////////////////
 
             const botonEliminar = document.getElementById(`eliminar_${element.id}`);
@@ -127,6 +127,7 @@ function imprimirDetallesFCI(value){
 
     detalle.innerHTML = '';//lo limpieamos para que no se sobreescriba
     detalle.innerHTML = `<div class='detalle_fci_titulo'><h1>${resultadosParaMostrar[value].nombre}</h1></div><hr><br>
+                        <div class='detalle_fci_imagen'><img class='detalle_fci_imagen--imagen' src='${resultadosParaMostrar[value].imagen}' alt='imagen-fci'></div>
                         <div class='detalle_fci_contenido'> <p>Plazo de permanencia sugerido: <b>${(resultadosParaMostrar[value].plazo).toUpperCase()}</b></p>
                                                             <p>Monto minimo de inversion: <b>$${resultadosParaMostrar[value].inversionMinima} ${(resultadosParaMostrar[value].moneda).toUpperCase()}</b></p>
                                                             <p>Tiempo de rescate: <b>${resultadosParaMostrar[value].rescate}</b></p>

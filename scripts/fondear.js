@@ -15,9 +15,9 @@ formularioFondear.addEventListener('submit',async (e) => {
             'error'
         );  
     };
-    let fondos = parseFloat(e.target.children[0].form[0].value);
-    let pesos = e.target.children[0].form[1].checked;
-    let dolares = e.target.children[0].form[2].checked;
+    let fondos = parseFloat(e.target.children[0].form[2].value);
+    let pesos = e.target.children[0].form[0].checked;
+    let dolares = e.target.children[0].form[1].checked;
     let cuentasAModificar = JSON.parse(localStorage.getItem('cuentas'));
     let sesionAModificar = JSON.parse(sessionStorage.getItem('sesion'));
     if (pesos){ //Verifica si esta marcado Pesos

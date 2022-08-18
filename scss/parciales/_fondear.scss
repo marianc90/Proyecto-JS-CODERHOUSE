@@ -3,6 +3,10 @@
     flex-direction: column;
     gap: 20px;
     margin: 20px;
+      & input[type=number]{
+          width: 50%;
+          text-align: left;
+      }
 }
 
 .banner__fondear{
@@ -39,7 +43,7 @@
  }
  
  .cuerpo__fondear{
-    background-color: #183f6500;
+   background-color: #00000029;
     backdrop-filter: blur(8px);
     color: aliceblue;
  

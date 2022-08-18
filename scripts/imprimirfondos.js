@@ -15,6 +15,7 @@ export function imprimirFondos(resultadosParaMostrar, cuerpoFCI){
         modal.className = 'modal_fci';//hacemos al modal visible mediante modificacion de la clase
         modal.innerHTML = '';//lo limpieamos para que no se sobreescriba
         modal.innerHTML = `<div class='modal_fci_titulo'><h1>${resultadosParaMostrar[recorrerArray].nombre}</h1></div>
+                           <div class='modal_fci_imagen'><img class='modal_fci_imagen--imagen' src='${resultadosParaMostrar[recorrerArray].imagen}' alt='imagen-fci'></div>
                            <div class='modal_fci_contenido'> <p>Plazo de permanencia sugerido: <b>${(resultadosParaMostrar[recorrerArray].plazo).toUpperCase()}</b></p>
                                                              <p>Monto minimo de inversion: <b>$${resultadosParaMostrar[recorrerArray].inversionMinima} ${(resultadosParaMostrar[recorrerArray].moneda).toUpperCase()}</b></p>
                                                              <p>Tiempo de rescate: <b>${resultadosParaMostrar[recorrerArray].rescate}</b></p>

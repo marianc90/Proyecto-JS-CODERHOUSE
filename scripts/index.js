@@ -1,7 +1,8 @@
 //Creación de clase de fondos de inversion
 class FondoDeInversion {
-    constructor(nombre, plazo, inversionMinima, moneda, rescate, rescateMiliseg, tipoRenta, valorCuotaparte, ultimoAño, ultimoMes, perfil, longitud) {
+    constructor(nombre, imagen, plazo, inversionMinima, moneda, rescate, rescateMiliseg, tipoRenta, valorCuotaparte, ultimoAño, ultimoMes, perfil, longitud) {
      this.nombre = nombre;
+     this.imagen = imagen;
      this.plazo = plazo;
      this.inversionMinima = inversionMinima;
      this.moneda = moneda;
@@ -22,7 +23,7 @@ async function importarFondos (){
     const data = await response.json();
 
     for (let fondo of data){
-        listaFondos.push(new FondoDeInversion(fondo.nombre,fondo.plazo,fondo.inversionMinima,fondo.moneda,fondo.rescate,fondo.rescateMiliseg,fondo.tipoRenta,fondo.valorCuotaparte,fondo.rentabilidad.ultimoAño, fondo.rentabilidad.ultimoMes, fondo.perfil, listaFondos));
+        listaFondos.push(new FondoDeInversion(fondo.nombre,fondo.imagen,fondo.plazo,fondo.inversionMinima,fondo.moneda,fondo.rescate,fondo.rescateMiliseg,fondo.tipoRenta,fondo.valorCuotaparte,fondo.rentabilidad.ultimoAño, fondo.rentabilidad.ultimoMes, fondo.perfil, listaFondos));
     }
 
     return listaFondos;

@@ -34,11 +34,10 @@ async function awaitFetch(){
             let fondoEncontrado = resultadosParaMostrar.find(elemento => elemento.id == element.id) //SE TRAEN LOS DATOS SEGUN NUMERO DE ID
             
             let li = document.createElement('li');// creacion de boton eliminar (si no se crea li y se le da append, SOLO FUNCIONA EL ULTIMO DE LA LISTA)
-            li.innerHTML = `${fondoEncontrado.nombre}<br> 
+            li.innerHTML = `<span>${fondoEncontrado.nombre}<br> 
                             - $${element.monto} ${fondoEncontrado.moneda}<br>
-                            - Rescate <span id='tiempoRescate_${element.id}'></span><br><br>
-                            <button id='rescatar_${element.id}' class='rescatar_lista_fci'>Rescatar</button><br><br>
-                            <hr /><br> `
+                            - Rescate <span id='tiempoRescate_${element.id}'></span></span><br><br>
+                            <button id='rescatar_${element.id}' class='rescatar_lista_fci'>Rescatar</button><br><br> `
             tenenciasContenedor.append(li);//////////////////////////////////////////////////////////////////////////////////////////////////////
 
             const botonRescatar = document.getElementById(`rescatar_${element.id}`);

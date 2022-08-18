@@ -1,9 +1,9 @@
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
 
 #menubar{
         padding: 50px;
         display: flex;
-        background-color: #494a4cd8;
+        background-color: #2b2c2dee;
         width: 80%;
         height: 100vh;
         position: fixed;
@@ -143,6 +143,7 @@
 
 
 .banner__fci{
+   padding: 20;
    padding-top: 120px;
    height: 96vh;
    background-image: url("../images/back/fci-mobile.jpg");
@@ -168,7 +169,12 @@
     border-radius: 10px;
     margin: 10px;
     padding-top: 15px;
+    padding-left: 7px;
+    list-style: none;
    }
+}
+.pendientes_fci li{
+  width: 100%;
 }
 
 //INVERTIR AHORA
@@ -202,7 +208,10 @@
     padding: 7px;
     width: 100%;
 } 
-
+.detalle_fci_botones{
+    padding: 20px;
+    text-align: center;
+}
 //FONDEAR
 
 .saldo{

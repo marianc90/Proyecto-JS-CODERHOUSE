@@ -1,10 +1,11 @@
 [
     {
         "nombre":"ADCAP PESOS PLUS Clase A",
+        "imagen":"../images/fci/grafico1.jpg",
         "plazo":"corto",
-        "inversionMinima":1000,
+        "inversionMinima":500,
         "moneda":"pesos",
-        "rescate":"48hs",
+        "rescate":"Inmediato",
         "rescateMiliseg":172800000,
         "tipoRenta":"Renta Fija",
         "valorCuotaparte":10.4625,
@@ -16,6 +17,7 @@
     },
     {
         "nombre":"FIMA PREMIUM Clase A",
+        "imagen":"../images/fci/grafico2.jpg",
         "plazo":"corto",
         "inversionMinima":1000,
         "moneda":"pesos",
@@ -31,6 +33,7 @@
     },
     {
         "nombre":"GALILEO AHORRO Clase A",
+        "imagen":"../images/fci/grafico3.jpg",
         "plazo":"corto",
         "inversionMinima":1000,
         "moneda":"pesos",
@@ -46,8 +49,9 @@
     },
     {
         "nombre":"TORONTO TRUST AHORRO Clase A",
+        "imagen":"../images/fci/grafico4.jpg",
         "plazo":"corto",
-        "inversionMinima":1000,
+        "inversionMinima":500,
         "moneda":"pesos",
         "rescate":"Inmediato",
         "rescateMiliseg":0,
@@ -61,8 +65,9 @@
         },
     {
         "nombre":"TORONTO TRUST LIQUIDEZ DÓLAR Clase A - Divisa",
+        "imagen":"../images/fci/grafico5.jpg",
         "plazo":"corto",
-        "inversionMinima":1000,
+        "inversionMinima":500,
         "moneda":"dolares",
         "rescate":"48hs",
         "rescateMiliseg":172800000,
@@ -76,6 +81,7 @@
         },
     {
         "nombre":"ADCAP BALANCEADO II Clase A",
+        "imagen":"../images/fci/grafico1.jpg",
         "plazo":"corto",
         "inversionMinima":1000,
         "moneda":"pesos",
@@ -91,8 +97,9 @@
         },
     {
         "nombre":"ADCAP RENTA FIJA ARGENTINA Clase A",
+        "imagen":"../images/fci/grafico2.jpg",
         "plazo":"corto",
-        "inversionMinima":1000,
+        "inversionMinima":3000,
         "moneda":"pesos",
         "rescate":"48hs",
         "rescateMiliseg":172800000,
@@ -106,8 +113,9 @@
         },
     {
         "nombre":"ADCAP RETORNO TOTAL Clase A",
+        "imagen":"../images/fci/grafico3.jpg",
         "plazo":"corto",
-        "inversionMinima":1000,
+        "inversionMinima":4000,
         "moneda":"pesos",
         "rescate":"24hs",
         "rescateMiliseg":86400000,
@@ -121,6 +129,7 @@
         },
     {
         "nombre":"ALLARIA COBERTURA DINÁMICA Clase A",
+        "imagen":"../images/fci/grafico4.jpg",
         "plazo":"mediano",
         "inversionMinima":1000,
         "moneda":"pesos",
@@ -136,6 +145,7 @@
         },
     {
         "nombre":"ARGENFUNDS ABIERTO PYMES Clase B",
+        "imagen":"../images/fci/grafico5.jpg",
         "plazo":"mediano",
         "inversionMinima":10000,
         "moneda":"pesos",
@@ -151,6 +161,7 @@
         },
     {
         "nombre":"ADCAP BALANCEADO Clase A",
+        "imagen":"../images/fci/grafico1.jpg",
         "plazo":"largo",
         "inversionMinima":500,
         "moneda":"pesos",
@@ -166,6 +177,7 @@
         },
     {
         "nombre":"ALLARIA ACCIONES Clase A",
+        "imagen":"../images/fci/grafico2.jpg",
         "plazo":"largo",
         "inversionMinima":1000,
         "moneda":"pesos",
@@ -181,9 +193,10 @@
         },
     {
         "nombre":"TORONTO TRUST ARGENTINA 2021 Clase A",
+        "imagen":"../images/fci/grafico3.jpg",
         "plazo":"largo",
         "inversionMinima":1000,
-        "moneda":"pesos",
+        "moneda":"dolares",
         "rescate":"48hs",
         "rescateMiliseg":172800000,
         "tipoRenta":"Renta Mixta",
@@ -196,13 +209,15 @@
         },
     {
         "nombre":"BALANZ ACCIONES Clase B",
+        "imagen":"../images/fci/grafico4.jpg",
         "plazo":"largo",
         "inversionMinima":20000,
-        "moneda":"pesos",
+        "moneda":"dolares",
         "rescate":"48hs",
         "rescateMiliseg":172800000,
         "tipoRenta":"Renta Variable",
-        "valorCuotaparte":5.64,"rentabilidad":{
+        "valorCuotaparte":5.64,
+        "rentabilidad":{
             "ultimoAño":13.56,
             "ultimoMes":57.13},
         "perfil":"Agresivo",
@@ -210,6 +225,7 @@
         },
     {
         "nombre":"CMA ACCIONES Clase A",
+        "imagen":"../images/fci/grafico5.jpg",
         "plazo":"largo",
         "inversionMinima":2000,
         "moneda":"pesos",

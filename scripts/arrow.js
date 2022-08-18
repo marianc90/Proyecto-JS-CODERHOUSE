@@ -7,6 +7,8 @@ if (window.matchMedia("(min-width: 600px)").matches) {
     })    
   } else {
     flecha.addEventListener('click', () => {
-    window.scrollTo(0,500);
+    window.scrollTo({left: 0,
+      top: 550,
+      behavior: 'smooth'});
     })    
   }
