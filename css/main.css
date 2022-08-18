@@ -814,12 +814,16 @@ form {
   .banner__fci {
     padding-top: 120px;
     height: 96vh;
+    background-image: url("../images/back/fci-mobile.jpg");
   }
   .banner__titulo {
     font-size: 30px;
   }
   .banner__fci__filtros {
     text-align: center;
+  }
+  .contenedor__fci {
+    background-image: url("../images/back/fci-mobile.jpg");
   }
   .cuerpo__fci {
     padding: 40px;
@@ -840,10 +844,14 @@ form {
     height: 100%;
     padding-bottom: 20px;
     flex-direction: column;
+    background-image: url("../images/back/invertir-mobile.jpg");
   }
   .banner__invertir__titulo {
     margin: 20px;
     font-size: 30px;
+  }
+  .contenedor__invertir {
+    background-image: url("../images/back/invertir-mobile.jpg");
   }
   .cuerpo__invertir {
     padding: 40px;
@@ -863,11 +871,15 @@ form {
     padding-top: 120px;
     height: 96vh;
     flex-direction: column;
+    background-image: url("../images/back/fondear-mobile.jpg");
   }
   .banner__fondear__titulo {
     margin: 30px;
     width: 100%;
     font-size: 30px;
+  }
+  .contenedor__fondear {
+    background-image: url("../images/back/fondear-mobile.jpg");
   }
   .cuerpo__fondear {
     padding: 40px;
@@ -881,9 +893,13 @@ form {
     height: 100%;
     flex-direction: column;
     justify-content: center;
+    background-image: url("../images/back/test-mobile.jpg");
   }
   .banner__test__titulo {
     font-size: 30px;
+  }
+  .contenedor__test {
+    background-image: url("../images/back/test-mobile.jpg");
   }
   .cuerpo__test {
     padding: 30px;
@@ -892,11 +908,15 @@ form {
     padding-top: 120px;
     height: 75vh;
     flex-direction: column;
+    background-image: url("../images/back/tenencias-mobile.jpg");
   }
   .banner__tenencias__titulo {
     width: 100%;
     font-size: 30px;
     padding: 10px;
+  }
+  .contenedor__tenencias {
+    background-image: url("../images/back/tenencias-mobile.jpg");
   }
   .cuerpo__tenencias {
     padding: 40px;
