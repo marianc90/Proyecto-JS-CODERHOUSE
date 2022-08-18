@@ -98,7 +98,7 @@
 //INDEX
 
 .banner__index{
- 
+    background-image: url("../images/back/index-mobile.jpg");
     height: 96vh;
     gap: 20px;
   
@@ -110,7 +110,10 @@
   .flecha-abajo{
     width: 50px;
   }
- 
+  
+  .contenedor__index{
+    background-image: url("../images/back/index-mobile.jpg");
+}
   
   .cuerpo__index{
     min-height: 150px;
