@@ -6,7 +6,7 @@
         "inversionMinima":500,
         "moneda":"pesos",
         "rescate":"Inmediato",
-        "rescateMiliseg":172800000,
+        "rescateMiliseg":0,
         "tipoRenta":"Renta Fija",
         "valorCuotaparte":10.4625,
         "rentabilidad":{
